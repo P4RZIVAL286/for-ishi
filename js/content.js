@@ -67,12 +67,12 @@ window.ANNIVERSARY_CONFIG = {
     },
     {
       month: "First 05",
-      tag: "All-Night Talk",
+      tag: "Video Call",
       date: "June 15",
-      title: "Our First All-Night FaceTime & Sleep Call",
-      caption: "Talking until our eyes grew heavy and falling asleep together across the screen. Hearing you breathe softly made every mile disappear.",
+      title: "Our First Video Call",
+      caption: "Seeing your beautiful face and smile moving in real time for the very first time. Hearing you laugh and seeing your expressions made every mile disappear.",
       accent: "#557A66",
-      imagePlaceholder: "🌙",
+      imagePlaceholder: "📱",
       image: "assets/images/first5.jpg"
     },
     {
@@ -120,6 +120,7 @@ window.ANNIVERSARY_CONFIG = {
       location: "Through the screen",
       backNote: "I was trying to give you the sweetest kiss. You said I looked like a puppy. 🐶😘",
       image: "assets/images/photo3_puppy.jpg",
+      objectPosition: "center 22%",
       symbol: "🐶"
     },
     {
@@ -275,7 +276,7 @@ window.ANNIVERSARY_CONFIG = {
     "When I try to give you a kiss through the screen and you call it a puppy face.",
     "How green is your favorite color, and now every shade of green reminds me of you.",
     "The memory of our first call on May 20th and how nervous and excited I was.",
-    "Our first sleep call on June 15th when distance felt like nothing.",
+    "Our first video call on June 15th when I finally got to see you smile.",
     "Counting down the days until January 1st when I see you in Mumbai.",
     "How proud I feel knowing you are my girlfriend since May 14th.",
     "Your sleepy morning voice that makes me fall in love all over again.",

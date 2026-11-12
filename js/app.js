@@ -197,7 +197,7 @@ function renderPolaroids(polaroidsData = []) {
         <!-- Front of Polaroid -->
         <div class="polaroid-side polaroid-front scrapbook-paper">
           <div class="polaroid-image-frame">
-            <img src="${item.image}" alt="${escapeHtml(item.caption)}" class="polaroid-img" onerror="this.onerror=null; this.src='assets/images/placeholder.svg';">
+            <img src="${item.image}" alt="${escapeHtml(item.caption)}" class="polaroid-img" style="${item.objectPosition ? `object-position: ${item.objectPosition};` : ''}" onerror="this.onerror=null; this.src='assets/images/placeholder.svg';">
             <span class="polaroid-symbol">${item.symbol || '📷'}</span>
           </div>
           <div class="polaroid-caption-area">

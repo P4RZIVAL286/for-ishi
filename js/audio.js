@@ -33,6 +33,7 @@ class RomanticAudioController {
       this.audioElement = new Audio();
       this.audioElement.src = src;
       this.audioElement.loop = true;
+      this.audioElement.volume = 0.28; // Gentle, soft volume
       this.audioElement.preload = "auto";
 
       this.audioElement.addEventListener("error", () => {
