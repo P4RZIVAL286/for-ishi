@@ -99,6 +99,7 @@ class ScratchTicket {
       const y = clientY - rect.top;
 
       this.eraseAt(x, y);
+      this.spawnSparkle(clientX, clientY);
 
       // Throttled clearance calculation
       const now = Date.now();
@@ -124,6 +125,17 @@ class ScratchTicket {
     });
     this.canvas.addEventListener("mousemove", scratch);
     window.addEventListener("mouseup", () => { this.isDrawing = false; });
+  }
+
+  spawnSparkle(cx, cy) {
+    if (Math.random() > 0.35) return;
+    const spark = document.createElement("span");
+    spark.className = "scratch-sparkle";
+    spark.textContent = ["✨", "💛", "⭐", "💫"][Math.floor(Math.random() * 4)];
+    spark.style.left = `${cx + (Math.random() - 0.5) * 24}px`;
+    spark.style.top = `${cy + (Math.random() - 0.5) * 24}px`;
+    document.body.appendChild(spark);
+    setTimeout(() => spark.remove(), 650);
   }
 
   eraseAt(x, y) {

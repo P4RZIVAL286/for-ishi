@@ -312,6 +312,19 @@ function renderOpenWhenEnvelopes(envelopesData = []) {
 }
 
 /**
+ * Generate universal WhatsApp redemption link for claimed vouchers
+ */
+function getWhatsAppRedeemLink(v, yourName) {
+  const msg = `Hey ${yourName}! 💚 I'm officially claiming my anniversary voucher: "${v.title}" (${v.number})! ✨`;
+  const config = window.ANNIVERSARY_CONFIG || {};
+  const phone = (config.yourWhatsAppNumber || "").replace(/[^0-9]/g, "");
+  if (phone) {
+    return `https://wa.me/${phone}?text=${encodeURIComponent(msg)}`;
+  }
+  return `https://wa.me/?text=${encodeURIComponent(msg)}`;
+}
+
+/**
  * Render Interactive Claimable Vouchers with LocalStorage Persistence
  */
 function renderVouchers(vouchersData = [], yourName = "Me") {
@@ -348,9 +361,12 @@ function renderVouchers(vouchersData = [], yourName = "Me") {
                   <span class="claimed-icon">✓</span>
                   <div class="claimed-text">
                     <strong>CLAIMED & READY!</strong>
-                    <span>📸 Screenshot this & send to ${escapeHtml(yourName)} to redeem!</span>
+                    <span>Screenshot or tap below to redeem with ${escapeHtml(yourName)}:</span>
                   </div>
                 </div>
+                <a href="${getWhatsAppRedeemLink(v, yourName)}" target="_blank" rel="noopener" class="redeem-wa-btn">
+                  <span>Send to ${escapeHtml(yourName)} on WhatsApp 💬</span>
+                </a>
               ` : `
                 <button class="claim-voucher-btn" data-id="${v.id}">
                   <span>Claim This Voucher</span>
@@ -444,14 +460,17 @@ function initLoveMeter() {
     } else if (val === 100) {
       feedbackDisplay.textContent = "100% — A completely full heart! But keep going... 💕";
       container.classList.remove("shaking", "overflowed");
-    } else if (val < 1000) {
+    } else if (val < 2000) {
       feedbackDisplay.textContent = "Now we're talking! Filling up the room with love ✨";
       container.classList.remove("shaking", "overflowed");
-    } else if (val < 50000) {
+    } else if (val < 20000) {
+      feedbackDisplay.textContent = "Levels higher than all the green in your wardrobe! 🌿💚";
+      container.classList.remove("shaking", "overflowed");
+    } else if (val < 150000) {
       feedbackDisplay.textContent = "Warning: Exceeding normal human capacity levels! 💓";
       container.classList.add("shaking");
       container.classList.remove("overflowed");
-    } else if (val < 500000) {
+    } else if (val < 700000) {
       feedbackDisplay.textContent = "CRITICAL: Meter is about to explode from cuteness! 🚨";
       container.classList.add("shaking");
       container.classList.remove("overflowed");
@@ -467,42 +486,80 @@ function initLoveMeter() {
 }
 
 /**
- * Affection Jar Note Dispenser
+ * Affection Jar Note Dispenser (Progressive 1 to 12 Fill)
  */
 function initAffectionJar(notes = []) {
   const jarBtn = document.getElementById("affection-jar-trigger");
   const noteCard = document.getElementById("jar-revealed-note");
   const noteText = document.getElementById("jar-note-text");
+  const noteBadge = document.getElementById("jar-note-badge");
+  const progressFill = document.getElementById("jar-progress-fill");
+  const progressNum = document.getElementById("jar-progress-num");
+  const counterHint = document.getElementById("jar-counter-hint");
+  const completionBox = document.getElementById("jar-completion-box");
+  const iconDisplay = document.getElementById("jar-icon-display");
 
   if (!jarBtn || !noteCard || !notes.length) return;
 
-  let lastIndex = -1;
+  const totalNotes = notes.length;
+  let currentIndex = 0;
+  let drawnCount = 0;
 
   jarBtn.addEventListener("click", () => {
     // Jiggle animation
     jarBtn.classList.add("jiggling");
     setTimeout(() => jarBtn.classList.remove("jiggling"), 600);
 
-    // Pick a new random note
-    let newIndex;
-    do {
-      newIndex = Math.floor(Math.random() * notes.length);
-    } while (notes.length > 1 && newIndex === lastIndex);
-    lastIndex = newIndex;
+    // Progressive sequence through all 12 notes
+    const noteIndex = currentIndex;
+    currentIndex = (currentIndex + 1) % totalNotes;
+    if (drawnCount < totalNotes) {
+      drawnCount++;
+    }
 
-    noteText.textContent = `"${notes[newIndex]}"`;
+    // Update fill bar
+    const pct = Math.min(100, Math.round((drawnCount / totalNotes) * 100));
+    if (progressFill) progressFill.style.width = `${pct}%`;
+
+    // Update hint & badge
+    if (noteBadge) noteBadge.textContent = `Reason #${noteIndex + 1} of ${totalNotes}`;
+    noteText.textContent = `"${notes[noteIndex]}"`;
+
     noteCard.classList.remove("hidden");
     noteCard.classList.add("popping");
     setTimeout(() => noteCard.classList.remove("popping"), 500);
 
-    // Mini confetti
-    if (typeof confetti === "function") {
-      confetti({
-        particleCount: 25,
-        spread: 40,
-        origin: { y: 0.8 },
-        colors: ['#D96B75', '#FFD166']
-      });
+    if (drawnCount < totalNotes) {
+      if (progressNum) progressNum.textContent = (drawnCount + 1).toString();
+      if (counterHint) {
+        counterHint.innerHTML = `Tap the jar to draw note <span id="jar-progress-num">${drawnCount + 1}</span> of ${totalNotes}! 💌`;
+      }
+      // Mini confetti
+      if (typeof confetti === "function") {
+        confetti({
+          particleCount: 20,
+          spread: 35,
+          origin: { y: 0.8 },
+          colors: ['#557A66', '#FFD166']
+        });
+      }
+    } else {
+      // 12 / 12 Full jar milestone!
+      if (counterHint) {
+        counterHint.innerHTML = `✨ Jar 100% full! All 12/12 reasons unlocked! 💚`;
+      }
+      if (completionBox) completionBox.classList.remove("hidden");
+      if (iconDisplay) iconDisplay.textContent = "🏺✨";
+
+      // Big celebratory burst
+      if (typeof confetti === "function") {
+        confetti({
+          particleCount: 75,
+          spread: 65,
+          origin: { y: 0.75 },
+          colors: ['#557A66', '#E2B86E', '#7B9E8C', '#FAF9F6']
+        });
+      }
     }
   });
 }

@@ -37,10 +37,10 @@ window.ANNIVERSARY_CONFIG = {
     },
     {
       month: "First 02",
-      tag: "The Big Confession",
+      tag: "6 Days In & I Already Knew",
       date: "May 13",
       title: "Saying 'I Love You' for the First Time",
-      caption: "I couldn't hold it back anymore. Saying those words and knowing how deeply I was falling for you was the easiest truth of my life.",
+      caption: "6 days in, and I couldn't hold it back anymore. Saying those words and knowing how deeply I was falling for you was the easiest truth of my life.",
       accent: "#7B9E8C",
       imagePlaceholder: "💚",
       image: "assets/images/first2.jpg"
@@ -80,7 +80,7 @@ window.ANNIVERSARY_CONFIG = {
       tag: "The Next Big First",
       date: "January 1",
       title: "Our First In-Person Hug in Mumbai",
-      caption: "Meeting at Marine Drive, Mumbai. The moment the screen turns off and I finally get to hold you in real life. I can't wait, Ishi.",
+      caption: "Meeting at Marine Drive, Mumbai. 1,000 miles melting into a few inches. No more countdowns, no more screens—just you and me. I can't wait, Ishi.",
       accent: "#2E6B47",
       imagePlaceholder: "🫂",
       image: "assets/images/first6.jpg"
@@ -107,7 +107,7 @@ window.ANNIVERSARY_CONFIG = {
       caption: "Our Spotify Blend: 97%",
       date: "Our Blend Score",
       location: "Spotify",
-      backNote: "97% taste match. Honestly not surprised — we vibe in every single way.",
+      backNote: "97% taste match. Honestly not surprised — our playlists agree, but I'm still stealing your favorite songs 🎵",
       image: "assets/images/photo2_blend.jpg",
       symbol: "🎵"
     },
@@ -129,7 +129,7 @@ window.ANNIVERSARY_CONFIG = {
       washiColor: "washi-sage",
       caption: "Marine Drive, Mumbai",
       date: "January 1",
-      location: "Marine Drive, Mumbai",
+      location: "Destination: Marine Drive • ETA: Jan 1st 🫂",
       backNote: "The moment I see you here in real life for the first time will be the happiest second of my life.",
       image: "assets/images/photo4_marinedrive.jpg",
       symbol: "🌊"
@@ -172,7 +172,7 @@ window.ANNIVERSARY_CONFIG = {
       stamp: "🤍",
       colorClass: "env-sage",
       teaser: "For when overthinking sneaks in.",
-      letter: `my dearest ishi,\n\nlet me make this crystal clear: no distance, no time zone, and no number of miles could ever weaken what i feel for you. i don't look around; my heart is completely and happily settled on you.\n\nyou are not just someone i talk to on the phone. you are my future, my peace, and my favorite person. i choose you every single day.\n\nyou have all of me, always.`
+      letter: `my dearest ishi,\n\nlet me make this crystal clear: no distance, no time zone, and no number of miles could ever weaken what i feel for you. i don't look around; my heart is completely and happily settled on you.\n\nyou are not just someone i talk to on the phone. you are my future, my peace, and my favorite person. i choose you every single day.\n\nyou have all of me, always.\n\np.s. if you're reading this right now, look at your screen and know that someone in another city is smiling just thinking of your name. 💚`
     },
     {
       id: "sleep-call",
@@ -214,7 +214,7 @@ window.ANNIVERSARY_CONFIG = {
       badge: "INSIDE JOKE",
       icon: "sparkles",
       description: "You have to laugh at my cheeky jokes without rolling your eyes or calling me annoying.",
-      terms: "One-time immunity pass for Shaurya's jokes.",
+      terms: "No eye rolls allowed. Soft chuckles mandatory. One-time immunity pass for Shaurya's jokes.",
       claimedText: "Immunity granted! Prepare for cheeky jokes."
     },
     {
@@ -230,11 +230,11 @@ window.ANNIVERSARY_CONFIG = {
     {
       id: "vouch-food-delivery",
       number: "VOUCHER #005",
-      title: "Late-Night Comfort Food Delivery",
+      title: "Midnight Cravings on Shaurya",
       badge: "COMFORT FOOD",
       icon: "utensils",
       description: "Any snack, dessert, or meal delivered directly to your doorstep on Shaurya's tab.",
-      terms: "Just send me what you're craving and consider it ordered.",
+      terms: "From savory to your favorite dessert, delivered right to your door. Just send me what you're craving and consider it ordered.",
       claimedText: "Food order unlocked! Tell me what you want to eat."
     },
     {

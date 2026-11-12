@@ -217,14 +217,29 @@
           <div class="affection-jar-card scrapbook-paper">
             <span class="section-label">Affection Dispenser</span>
             <h3 style="font-size: 1.3rem; font-weight: 700; margin-top: 0.5rem;">Reasons Why I Love You</h3>
-            <p class="jar-hint">Tap the cute jar to draw a random little note!</p>
+            <p class="jar-hint" id="jar-counter-hint">Tap the jar to draw note <span id="jar-progress-num">1</span> of 12! 💌</p>
 
-            <button id="affection-jar-trigger" class="jar-trigger-button" aria-label="Tap jar to dispense a love note">
-              🫙
-            </button>
+            <div class="jar-interactive-wrap">
+              <button id="affection-jar-trigger" class="jar-trigger-button" aria-label="Tap jar to dispense a love note">
+                <span class="jar-icon" id="jar-icon-display">🫙</span>
+              </button>
+              <div class="jar-progress-track">
+                <div class="jar-progress-fill" id="jar-progress-fill" style="width: 8%;"></div>
+              </div>
+            </div>
 
             <div id="jar-revealed-note" class="jar-note-paper hidden">
+              <div class="jar-note-meta">
+                <span class="jar-note-badge" id="jar-note-badge">Reason #1</span>
+              </div>
               <p class="jar-note-content" id="jar-note-text">"The way your eyes crinkle when you laugh..."</p>
+            </div>
+
+            <div id="jar-completion-box" class="jar-completion-card hidden">
+              <div class="jar-completion-badge">✨ Jar 100% Full of Love ✨</div>
+              <p class="jar-completion-text">
+                You've collected all 12 reasons! But honestly, Ishi, 12 notes could never hold all the reasons I love you. There are millions more waiting for every single day ahead. 💚
+              </p>
             </div>
           </div>
 

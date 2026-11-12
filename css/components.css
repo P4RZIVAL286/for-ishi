@@ -844,3 +844,126 @@
   color: var(--green-primary);
   font-weight: 700;
 }
+
+/* ==========================================================================
+   POLISH UPGRADES: AFFECTION JAR PROGRESS & COMPLETION
+   ========================================================================== */
+
+.jar-interactive-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0.25rem 0 1rem;
+}
+
+.jar-icon {
+  font-size: 3.8rem;
+  display: inline-block;
+  transition: transform 0.25s ease;
+}
+
+.jar-progress-track {
+  width: 100%;
+  max-width: 220px;
+  height: 8px;
+  background: rgba(85, 122, 102, 0.15);
+  border-radius: 999px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.jar-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--green-soft), var(--green-primary));
+  border-radius: 999px;
+  transition: width 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.jar-note-meta {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 0.4rem;
+}
+
+.jar-note-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  color: var(--green-primary);
+  background: rgba(85, 122, 102, 0.12);
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+}
+
+.jar-completion-card {
+  margin-top: 1.25rem;
+  padding: 1.25rem 1rem;
+  background: linear-gradient(135deg, #F2F8F4, #FAF7EE);
+  border: 1.5px solid var(--green-soft);
+  border-radius: 12px;
+  animation: popNote 0.5s var(--ease-elastic);
+}
+
+.jar-completion-card.hidden {
+  display: none;
+}
+
+.jar-completion-badge {
+  font-weight: 800;
+  font-size: 0.95rem;
+  color: var(--green-primary);
+  margin-bottom: 0.4rem;
+  letter-spacing: 0.5px;
+}
+
+.jar-completion-text {
+  font-size: 0.9rem;
+  color: var(--ink-primary);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   POLISH UPGRADES: WHATSAPP VOUCHER REDEEM BUTTON
+   ========================================================================== */
+
+.redeem-wa-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0.6rem;
+  padding: 0.55rem 1rem;
+  background: #25D366;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 8px;
+  box-shadow: 0 3px 8px rgba(37, 211, 102, 0.35);
+  transition: transform 0.2s, background 0.2s;
+  width: 100%;
+}
+
+.redeem-wa-btn:hover, .redeem-wa-btn:active {
+  background: #1EBE5D;
+  transform: scale(0.98);
+}
+
+/* ==========================================================================
+   POLISH UPGRADES: TACTILE SCRATCH SPARKLES
+   ========================================================================== */
+
+.scratch-sparkle {
+  position: fixed;
+  pointer-events: none;
+  font-size: 1.1rem;
+  z-index: 99999;
+  animation: sparkleFloat 0.65s ease-out forwards;
+}
+
+@keyframes sparkleFloat {
+  0% { transform: translate(-50%, -50%) scale(0.4) rotate(0deg); opacity: 1; }
+  100% { transform: translate(-50%, -40px) scale(1.3) rotate(25deg); opacity: 0; }
+}
