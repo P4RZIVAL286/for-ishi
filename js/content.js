@@ -154,7 +154,7 @@ window.ANNIVERSARY_CONFIG = {
       stamp: "✈️",
       colorClass: "env-mint",
       teaser: "Picturing the moment at Marine Drive, Mumbai.",
-      letter: `hey love,\n\ncan you picture january 1st? because i think about it every day.\n\nwhen i see you outside your college in mumbai, i am never letting you go. no screens, no bad wifi, no time limits. just you and me, finally in the same place holding hands.\n\nthe wait is going to make that first hug the sweetest thing either of us has ever known. it's coming so soon, ishi!`
+      letter: `hey love,\n\ncan you picture january 1st? because i think about it every day.\n\nwhen i see you at marine drive, i am never letting you go. no screens, no bad wifi, no time limits. just you and me, finally in the same place holding hands.\n\nthe wait is going to make that first hug the sweetest thing either of us has ever known. it's coming so soon, ishi!`
     },
     {
       id: "puppy-face",
@@ -181,7 +181,7 @@ window.ANNIVERSARY_CONFIG = {
       stamp: "🌙",
       colorClass: "env-twilight",
       teaser: "Late night comfort when the world is quiet.",
-      letter: `sweetheart,\n\nif you can't sleep, imagine me tucking you in, smoothing your hair, and whispering how proud i am of you.\n\nthink about our first sleep call back on june 15th, and how safe we felt. sleep gently, knowing that on january 1st, i won't just be a voice on the phone.\n\ngoodnight my pretty girl. sweet dreams.`
+      letter: `sweetheart,\n\nif you can't sleep, imagine me tucking you in, smoothing your hair, and whispering how proud i am of you.\n\nthink about our first video call on june 15th, seeing each other's faces for the first time, and how safe we felt. sleep gently, knowing that on january 1st, i won't just be a face on the screen.\n\ngoodnight my pretty girl. sweet dreams.`
     }
   ],
 
@@ -193,7 +193,7 @@ window.ANNIVERSARY_CONFIG = {
       title: "The First Hug at Marine Drive",
       badge: "JAN 1ST EXCLUSIVE",
       icon: "heart",
-      description: "Redeemable the exact second we meet outside your college on January 1st. You decide when we let go.",
+      description: "Redeemable the exact second we meet at Marine Drive on January 1st. You decide when we let go.",
       terms: "100% warmth guaranteed. Forehead kisses included on arrival.",
       claimedText: "First hug locked in! January 1st cannot come soon enough, Ishi."
     },
@@ -240,10 +240,10 @@ window.ANNIVERSARY_CONFIG = {
     {
       id: "vouch-sleep-call",
       number: "VOUCHER #006",
-      title: "All-Night Sleep Call",
+      title: "All-Night Video Call",
       badge: "LDR ESSENTIAL",
       icon: "moon",
-      description: "Falling asleep together on call with zero rush to hang up, just like June 15th.",
+      description: "Staying up all night on video call with zero rush to hang up, just like we did after June 15th.",
       terms: "Charger plugged in, soft whispers until morning.",
       claimedText: "Sleep call activated! Goodnight in advance."
     },

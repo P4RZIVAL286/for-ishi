@@ -25,9 +25,27 @@
 <body>
 
   <!-- ==========================================================================
+       STAGE -1: PASSWORD LOCK SCREEN
+       ========================================================================== -->
+  <div id="password-overlay" class="password-overlay">
+    <div class="password-gate">
+      <div class="password-lock-icon">🔒</div>
+      <h2 class="password-title">This is for someone special</h2>
+      <p class="password-hint">Type the magic word to unlock ✨</p>
+      <div class="password-input-wrap">
+        <input type="password" id="password-input" class="password-input" placeholder="••••••••" autocomplete="off" autofocus>
+        <button id="password-submit" class="password-submit-btn" aria-label="Unlock">
+          <i data-lucide="unlock" style="width: 18px; height: 18px;"></i>
+        </button>
+      </div>
+      <p id="password-error" class="password-error hidden">That's not it, try again 💚</p>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
        STAGE 0: WAX-SEALED ENTRY OVERLAY
        ========================================================================== -->
-  <div id="entry-overlay" class="entry-overlay">
+  <div id="entry-overlay" class="entry-overlay" style="display: none;">
     <div class="envelope-gate">
       <div class="envelope-gate-flap"></div>
       <p class="gate-to-text">A special delivery for</p>
@@ -64,6 +82,9 @@
        MAIN EXPERIENCE (Blurred until seal is tapped)
        ========================================================================== -->
   <main id="main-content" class="blurred">
+
+    <!-- Subtle falling petals background -->
+    <canvas id="petals-canvas" class="petals-canvas"></canvas>
 
     <!-- HERO SECTION -->
     <header class="hero-section">
@@ -257,7 +278,7 @@
       <div class="container">
         <p class="footer-note">Happy 6-Month Anniversary, Ishi 💚</p>
         <p class="footer-sub">Shaurya & Ishi • Half a year down, forever to go</p>
-        <button id="reset-vouchers-btn" class="reset-vouchers-btn">Reset claimed vouchers test state</button>
+        <button id="reset-vouchers-btn" class="reset-vouchers-btn" style="opacity: 0; pointer-events: none; position: absolute;">Reset claimed vouchers test state</button>
       </div>
     </footer>
 

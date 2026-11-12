@@ -553,3 +553,132 @@ function escapeHtml(str) {
             .replace(/"/g, "&quot;")
             .replace(/'/g, "&#039;");
 }
+
+/* ==========================================================================
+   FIX #5: PASSWORD LOCK SCREEN
+   ========================================================================== */
+
+(function initPasswordGate() {
+  const overlay = document.getElementById("password-overlay");
+  if (!overlay) return;
+
+  const input = document.getElementById("password-input");
+  const submit = document.getElementById("password-submit");
+  const error = document.getElementById("password-error");
+  const entryOverlay = document.getElementById("entry-overlay");
+  const PASSWORD = "babygirl";
+
+  function tryUnlock() {
+    if (input.value.trim().toLowerCase() === PASSWORD) {
+      overlay.classList.add("unlocked");
+      setTimeout(() => {
+        overlay.remove();
+        if (entryOverlay) entryOverlay.style.display = "";
+      }, 600);
+    } else {
+      error.classList.remove("hidden");
+      input.classList.add("shake");
+      setTimeout(() => input.classList.remove("shake"), 400);
+      input.value = "";
+      input.focus();
+    }
+  }
+
+  submit.addEventListener("click", tryUnlock);
+  input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") tryUnlock();
+    error.classList.add("hidden");
+  });
+})();
+
+/* ==========================================================================
+   FIX #6: SCROLL-REVEAL ANIMATIONS (IntersectionObserver)
+   ========================================================================== */
+
+(function initScrollReveal() {
+  const targets = document.querySelectorAll(
+    ".chapter-section, .journey-counter-card, .meeting-countdown-card, .letter-parchment, .footer-section"
+  );
+  if (!targets.length) return;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("revealed");
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  targets.forEach(el => observer.observe(el));
+})();
+
+/* ==========================================================================
+   FIX #7: VERY SUBTLE FALLING PETALS
+   ========================================================================== */
+
+(function initPetals() {
+  const canvas = document.getElementById("petals-canvas");
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+  let petals = [];
+  const MAX_PETALS = 12; // Very sparse
+
+  function resize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  resize();
+  window.addEventListener("resize", resize);
+
+  function createPetal() {
+    const hue = 100 + Math.random() * 40; // Green-ish range
+    const lightness = 65 + Math.random() * 20;
+    return {
+      x: Math.random() * canvas.width,
+      y: -10,
+      size: 4 + Math.random() * 5,
+      speedY: 0.25 + Math.random() * 0.35,
+      speedX: (Math.random() - 0.5) * 0.3,
+      rotation: Math.random() * Math.PI * 2,
+      rotSpeed: (Math.random() - 0.5) * 0.01,
+      opacity: 0.15 + Math.random() * 0.2,
+      color: `hsla(${hue}, 40%, ${lightness}%, `
+    };
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Spawn sparingly
+    if (petals.length < MAX_PETALS && Math.random() < 0.015) {
+      petals.push(createPetal());
+    }
+
+    petals.forEach((p, i) => {
+      p.y += p.speedY;
+      p.x += p.speedX + Math.sin(p.y * 0.008) * 0.3;
+      p.rotation += p.rotSpeed;
+
+      ctx.save();
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rotation);
+      ctx.globalAlpha = p.opacity;
+
+      // Simple leaf/petal shape
+      ctx.beginPath();
+      ctx.ellipse(0, 0, p.size * 0.5, p.size, 0, 0, Math.PI * 2);
+      ctx.fillStyle = p.color + p.opacity + ")";
+      ctx.fill();
+      ctx.restore();
+
+      // Remove if off screen
+      if (p.y > canvas.height + 20) petals.splice(i, 1);
+    });
+
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+})();
