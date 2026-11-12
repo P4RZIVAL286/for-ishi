@@ -17,18 +17,28 @@ document.addEventListener("DOMContentLoaded", () => {
   const herNameElements = document.querySelectorAll(".her-name-placeholder");
   herNameElements.forEach(el => el.textContent = config.herName || "My Love");
 
-  // 3. Wax-Seal Entry Overlay Interaction
+  // 3. Wax-Seal Entry Overlay + Password Check ("babygirl")
   const entryOverlay = document.getElementById("entry-overlay");
   const waxSealBtn = document.getElementById("wax-seal-btn");
   const mainContent = document.getElementById("main-content");
+  const passwordInput = document.getElementById("password-input");
+  const passwordError = document.getElementById("password-error");
 
-  if (waxSealBtn && entryOverlay) {
-    waxSealBtn.addEventListener("click", () => {
+  const SECRET_PASS = "babygirl";
+
+  function checkAndOpen() {
+    const rawVal = passwordInput ? passwordInput.value : "";
+    const clean = rawVal.trim().toLowerCase().replace(/\s+/g, "");
+
+    // Accepts 'babygirl' or 'baby girl'
+    if (clean === SECRET_PASS) {
+      if (passwordError) passwordError.classList.add("hidden");
+
       // Audio gesture unlock
       audio.startOnGesture();
 
       // Envelope open animation
-      entryOverlay.classList.add("opening");
+      if (entryOverlay) entryOverlay.classList.add("opening");
 
       // Confetti burst
       if (typeof confetti === "function") {
@@ -36,17 +46,38 @@ document.addEventListener("DOMContentLoaded", () => {
           particleCount: 80,
           spread: 70,
           origin: { y: 0.6 },
-          colors: ['#D96B75', '#F2A65A', '#7A9A8B', '#FDFBF7']
+          colors: ['#557A66', '#E2B86E', '#7B9E8C', '#FAF9F6']
         });
       }
 
       setTimeout(() => {
-        entryOverlay.classList.add("hidden");
+        if (entryOverlay) entryOverlay.classList.add("hidden");
         if (mainContent) {
           mainContent.classList.remove("blurred");
           mainContent.classList.add("visible");
         }
-      }, 900);
+        document.body.classList.add("has-motion");
+        if (typeof triggerScrollReveal === "function") {
+          triggerScrollReveal();
+        }
+      }, 850);
+    } else {
+      if (passwordError) passwordError.classList.remove("hidden");
+      if (passwordInput) {
+        passwordInput.classList.add("shake");
+        setTimeout(() => passwordInput.classList.remove("shake"), 400);
+        passwordInput.focus();
+      }
+    }
+  }
+
+  if (waxSealBtn) {
+    waxSealBtn.addEventListener("click", checkAndOpen);
+  }
+  if (passwordInput) {
+    passwordInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") checkAndOpen();
+      if (passwordError) passwordError.classList.add("hidden");
     });
   }
 
@@ -555,75 +586,51 @@ function escapeHtml(str) {
 }
 
 /* ==========================================================================
-   FIX #5: PASSWORD LOCK SCREEN
+   FIX #6: PROGRESSIVE SCROLL-REVEAL (Safe & Guaranteed Visible)
    ========================================================================== */
 
-(function initPasswordGate() {
-  const overlay = document.getElementById("password-overlay");
-  if (!overlay) return;
-
-  const input = document.getElementById("password-input");
-  const submit = document.getElementById("password-submit");
-  const error = document.getElementById("password-error");
-  const entryOverlay = document.getElementById("entry-overlay");
-  const PASSWORD = "babygirl";
-
-  function tryUnlock() {
-    if (input.value.trim().toLowerCase() === PASSWORD) {
-      overlay.classList.add("unlocked");
-      setTimeout(() => {
-        overlay.remove();
-        if (entryOverlay) entryOverlay.style.display = "";
-      }, 600);
-    } else {
-      error.classList.remove("hidden");
-      input.classList.add("shake");
-      setTimeout(() => input.classList.remove("shake"), 400);
-      input.value = "";
-      input.focus();
-    }
-  }
-
-  submit.addEventListener("click", tryUnlock);
-  input.addEventListener("keydown", (e) => {
-    if (e.key === "Enter") tryUnlock();
-    error.classList.add("hidden");
-  });
-})();
-
-/* ==========================================================================
-   FIX #6: SCROLL-REVEAL ANIMATIONS (IntersectionObserver)
-   ========================================================================== */
-
-(function initScrollReveal() {
+function triggerScrollReveal() {
   const targets = document.querySelectorAll(
-    ".chapter-section, .journey-counter-card, .meeting-countdown-card, .letter-parchment, .footer-section"
+    ".chapter-section, .journey-counter-card, .meeting-countdown-card, .letter-parchment"
   );
   if (!targets.length) return;
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("revealed");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
+  targets.forEach(el => el.classList.add("reveal-block"));
 
-  targets.forEach(el => observer.observe(el));
-})();
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-revealed");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: "0px 0px -40px 0px" });
+
+    targets.forEach(el => observer.observe(el));
+  } else {
+    targets.forEach(el => el.classList.add("is-revealed"));
+  }
+
+  // Safety fallback: reveal everything after 1s so content NEVER stays hidden
+  setTimeout(() => {
+    targets.forEach(el => el.classList.add("is-revealed"));
+  }, 1000);
+}
 
 /* ==========================================================================
-   FIX #7: VERY SUBTLE FALLING PETALS
+   FIX #7: SUBTLE FLOATING BOTANICAL PETALS
    ========================================================================== */
 
 (function initPetals() {
   const canvas = document.getElementById("petals-canvas");
-  if (!canvas) return;
+  if (!canvas || typeof canvas.getContext !== "function") return;
 
   const ctx = canvas.getContext("2d");
+  if (!ctx) return;
+
   let petals = [];
-  const MAX_PETALS = 12; // Very sparse
+  const MAX_PETALS = 14;
 
   function resize() {
     canvas.width = window.innerWidth;
@@ -633,32 +640,30 @@ function escapeHtml(str) {
   window.addEventListener("resize", resize);
 
   function createPetal() {
-    const hue = 100 + Math.random() * 40; // Green-ish range
-    const lightness = 65 + Math.random() * 20;
     return {
       x: Math.random() * canvas.width,
-      y: -10,
+      y: -15,
       size: 4 + Math.random() * 5,
-      speedY: 0.25 + Math.random() * 0.35,
-      speedX: (Math.random() - 0.5) * 0.3,
+      speedY: 0.3 + Math.random() * 0.4,
+      speedX: (Math.random() - 0.5) * 0.35,
       rotation: Math.random() * Math.PI * 2,
-      rotSpeed: (Math.random() - 0.5) * 0.01,
-      opacity: 0.15 + Math.random() * 0.2,
-      color: `hsla(${hue}, 40%, ${lightness}%, `
+      rotSpeed: (Math.random() - 0.5) * 0.015,
+      opacity: 0.2 + Math.random() * 0.2,
+      hue: 115 + Math.random() * 35 // Soft sage & matcha green
     };
   }
 
   function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-    // Spawn sparingly
-    if (petals.length < MAX_PETALS && Math.random() < 0.015) {
+    if (petals.length < MAX_PETALS && Math.random() < 0.02) {
       petals.push(createPetal());
     }
 
-    petals.forEach((p, i) => {
+    for (let i = petals.length - 1; i >= 0; i--) {
+      const p = petals[i];
       p.y += p.speedY;
-      p.x += p.speedX + Math.sin(p.y * 0.008) * 0.3;
+      p.x += p.speedX + Math.sin(p.y * 0.01) * 0.25;
       p.rotation += p.rotSpeed;
 
       ctx.save();
@@ -666,19 +671,19 @@ function escapeHtml(str) {
       ctx.rotate(p.rotation);
       ctx.globalAlpha = p.opacity;
 
-      // Simple leaf/petal shape
       ctx.beginPath();
-      ctx.ellipse(0, 0, p.size * 0.5, p.size, 0, 0, Math.PI * 2);
-      ctx.fillStyle = p.color + p.opacity + ")";
+      ctx.ellipse(0, 0, p.size * 0.55, p.size, 0, 0, Math.PI * 2);
+      ctx.fillStyle = `hsl(${p.hue}, 28%, 68%)`;
       ctx.fill();
       ctx.restore();
 
-      // Remove if off screen
-      if (p.y > canvas.height + 20) petals.splice(i, 1);
-    });
+      if (p.y > canvas.height + 25) {
+        petals.splice(i, 1);
+      }
+    }
 
     requestAnimationFrame(draw);
   }
 
-  draw();
+  requestAnimationFrame(draw);
 })();

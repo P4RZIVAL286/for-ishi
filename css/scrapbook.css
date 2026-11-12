@@ -569,109 +569,68 @@ body {
 }
 
 /* ==========================================================================
-   PASSWORD LOCK SCREEN (Fix #5)
+   PASSWORD-PROTECTED WAX SEAL ENVELOPE (Unified & Seamless)
    ========================================================================== */
 
-.password-overlay {
-  position: fixed;
-  inset: 0;
-  z-index: 100000;
-  background: linear-gradient(160deg, #F4F9F6 0%, #EBF3EE 40%, #FCF4E3 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.6s ease, transform 0.6s ease;
+.password-box {
+  z-index: 5;
+  margin: 0.6rem 0 0.8rem;
+  width: 100%;
+  max-width: 250px;
+  position: relative;
 }
 
-.password-overlay.unlocked {
-  opacity: 0;
-  transform: scale(1.05);
-  pointer-events: none;
-}
-
-.password-gate {
-  text-align: center;
-  padding: 2.5rem;
-  max-width: 340px;
-}
-
-.password-lock-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-  animation: gentleBounce 2s ease-in-out infinite;
-}
-
-@keyframes gentleBounce {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
-}
-
-.password-title {
-  font-family: 'Caveat', cursive;
-  font-size: 1.8rem;
+.password-prompt-text {
+  display: block;
+  font-family: 'Patrick Hand', cursive;
+  font-size: 1.05rem;
   color: var(--green-primary);
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.35rem;
+  font-weight: 600;
 }
 
-.password-hint {
-  font-size: 0.9rem;
-  color: var(--ink-muted);
-  margin-bottom: 1.5rem;
-}
-
-.password-input-wrap {
+.password-input-row {
   display: flex;
-  gap: 8px;
   justify-content: center;
+  position: relative;
 }
 
-.password-input {
+.password-input-field {
+  width: 100%;
   font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 1rem;
-  padding: 0.7rem 1rem;
-  border: 2px solid var(--green-border);
-  border-radius: 12px;
-  background: var(--paper-white);
+  font-size: 0.95rem;
+  padding: 0.5rem 1rem;
+  border: 1.5px solid var(--green-border);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.95);
   color: var(--ink-primary);
-  width: 200px;
   text-align: center;
   outline: none;
-  transition: border-color 0.3s;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
 }
 
-.password-input:focus {
+.password-input-field:focus {
   border-color: var(--green-primary);
+  background: #FFFFFF;
+  box-shadow: 0 0 0 3px rgba(85, 122, 102, 0.18);
 }
 
-.password-submit-btn {
-  background: var(--green-primary);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 0.7rem 1rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  transition: transform 0.2s, opacity 0.2s;
-}
-
-.password-submit-btn:hover {
-  transform: scale(1.05);
-}
-
-.password-error {
-  color: var(--blush-accent);
-  font-size: 0.85rem;
-  margin-top: 1rem;
-  transition: opacity 0.3s;
-}
-
-.password-error.hidden {
-  opacity: 0;
-}
-
-.password-input.shake {
+.password-input-field.shake {
   animation: inputShake 0.4s ease;
+}
+
+.password-error-tip {
+  color: #D9534F;
+  font-size: 0.8rem;
+  font-weight: 600;
+  margin-top: 0.35rem;
+  transition: opacity 0.25s ease;
+}
+
+.password-error-tip.hidden {
+  opacity: 0;
+  visibility: hidden;
 }
 
 @keyframes inputShake {
@@ -683,43 +642,32 @@ body {
 }
 
 /* ==========================================================================
-   SCROLL-REVEAL ANIMATIONS (Fix #6)
+   PROGRESSIVE SCROLL-REVEAL ANIMATIONS (Never breaks content visibility)
    ========================================================================== */
 
-.chapter-section,
-.journey-counter-card,
-.meeting-countdown-card,
-.letter-parchment,
-.footer-section {
+body.has-motion .reveal-block {
   opacity: 0;
-  transform: translateY(30px);
-  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: translateY(20px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1), transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
 }
 
-.chapter-section.revealed,
-.journey-counter-card.revealed,
-.meeting-countdown-card.revealed,
-.letter-parchment.revealed,
-.footer-section.revealed {
+body.has-motion .reveal-block.is-revealed {
   opacity: 1;
   transform: translateY(0);
 }
 
-/* Stagger children slightly */
-.chapter-section:nth-child(even) {
-  transition-delay: 0.05s;
-}
-
 /* ==========================================================================
-   PETALS CANVAS (Fix #7)
+   SUBTLE FLOATING PETALS CANVAS (Clean & Non-Intrusive)
    ========================================================================== */
 
 .petals-canvas {
   position: fixed;
-  inset: 0;
-  width: 100%;
-  height: 100%;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   pointer-events: none;
-  z-index: 1;
-  opacity: 0.4;
+  z-index: 5;
+  opacity: 0.35;
 }

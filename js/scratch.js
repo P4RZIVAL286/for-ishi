@@ -16,7 +16,7 @@ class ScratchTicket {
     this.isRevealed = false;
     this.lastCheck = 0;
 
-    if (this.canvas) {
+    if (this.canvas && typeof this.canvas.getContext === "function") {
       this.init();
     }
   }

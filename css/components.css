@@ -28,17 +28,17 @@
 
 .envelope-gate {
   width: 100%;
-  max-width: 360px;
-  aspect-ratio: 4 / 3;
+  max-width: 380px;
+  min-height: 400px;
   background: #FFFDF9;
-  border-radius: 14px;
+  border-radius: 16px;
   position: relative;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.35);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 2rem 1.5rem;
+  padding: 2.2rem 1.6rem 1.8rem;
   text-align: center;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.7);
@@ -74,7 +74,7 @@
   font-size: 1.5rem;
   font-weight: 800;
   color: var(--ink-primary);
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.4rem;
   z-index: 3;
 }
 
