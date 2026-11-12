@@ -1,332 +1,333 @@
 /**
  * ------------------------------------------------------------------
- * ANNIVERSARY WEBSITE CONFIGURATION & CONTENT
+ * ANNIVERSARY CONFIGURATION: LDR & "OUR FIRSTS" EDITION
  * ------------------------------------------------------------------
- * You can personalize every single piece of content, image, date,
- * and message here! The website updates automatically.
+ * Soft Botanical / Sage Green aesthetic with LDR countdown to Jan 1st!
+ * You can edit any details, memories, or dates below.
  */
 
 window.ANNIVERSARY_CONFIG = {
   // Couple Information
-  herName: "My Love", // Change to her name or nickname (e.g. "Babe", "Sophia", "Princess")
-  yourName: "Yours Truly", // Change to your name
-  startDate: "2024-05-14T00:00:00", // Start date of your relationship (YYYY-MM-DD)
-  anniversaryDate: "2024-11-14", // 6-month anniversary milestone
+  herName: "My Love",        // Change to her name or nickname
+  yourName: "Yours Truly",   // Change to your name
+  startDate: "2024-05-14T00:00:00", // Start of relationship (6 months ago)
+  anniversaryDate: "2024-11-14",    // 6-Month Anniversary date
   
-  // Audio & Music Settings
-  // Tip: Put an mp3 in 'assets/audio/our-song.mp3' or use an external URL.
-  // If left empty or file is missing, a sweet romantic ambient melody will be synthesized automatically!
+  // Special LDR Milestone: The In-Person Meeting Date!
+  meetingDate: "2025-01-01T00:00:00", // January 1st in-person meeting!
+  meetingCity: "Our First Meeting Place", // e.g. Airport, City, etc.
+
+  // Music Settings
   music: {
     title: "Our Song",
-    artist: "Six Months Together",
+    artist: "Six Months & Counting to Jan 1st",
     src: "assets/audio/our-song.mp3"
   },
 
-  // Chapter 1: The 6-Month Timeline
+  // Chapter 1: "Our Firsts" Timeline (Replacing generic months)
   timeline: [
     {
-      month: "Month 1 • May",
-      tag: "Where It All Began",
-      date: "May 14, 2024",
-      title: "The First Spark",
-      caption: "From our very first conversation, everything felt natural. That day marked the beginning of my favorite chapter.",
-      accent: "#E07A5F",
-      imagePlaceholder: "🌸",
-      image: "assets/images/month1.jpg"
+      month: "First 01",
+      tag: "Where It Began",
+      date: "May 2024",
+      title: "Our Very First Message",
+      caption: "A simple notification that turned into hours of nonstop typing. From the very first day, talking to you felt like coming home.",
+      accent: "#557A66",
+      imagePlaceholder: "💬",
+      image: "assets/images/first1.jpg"
     },
     {
-      month: "Month 2 • June",
-      tag: "First Adventures",
+      month: "First 02",
+      tag: "Hearing You",
+      date: "May 2024",
+      title: "Our First Voice Call",
+      caption: "Hearing your real laugh for the first time. I remember smiling so hard my cheeks hurt, and I didn't want to hang up.",
+      accent: "#7B9E8C",
+      imagePlaceholder: "🎙️",
+      image: "assets/images/first2.jpg"
+    },
+    {
+      month: "First 03",
+      tag: "All-Night Talk",
       date: "June 2024",
-      title: "Unstoppable Laughter",
-      caption: "Getting to know the quirks that make you so uniquely you. Time seemed to fly every time we were together.",
-      accent: "#819875",
-      imagePlaceholder: "🌿",
-      image: "assets/images/month2.jpg"
-    },
-    {
-      month: "Month 3 • July",
-      tag: "Deep Conversations",
-      date: "July 2024",
-      title: "Midnight Confessions",
-      caption: "Talking until the stars faded. Realizing that you weren't just someone special, but someone I could trust with my whole heart.",
-      accent: "#F4A261",
+      title: "Our First Sleep Call",
+      caption: "Falling asleep together with the call still connected. Listening to your soft breathing made hundreds of miles disappear.",
+      accent: "#E2B86E",
       imagePlaceholder: "🌙",
-      image: "assets/images/month3.jpg"
+      image: "assets/images/first3.jpg"
     },
     {
-      month: "Month 4 • August",
-      tag: "Comfort & Peace",
+      month: "First 04",
+      tag: "Movie Date",
+      date: "July 2024",
+      title: "Our First Virtual Movie Night",
+      caption: "Pressing play at the exact same second, sharing popcorn through the screen, and spending more time looking at you than the movie.",
+      accent: "#557A66",
+      imagePlaceholder: "🍿",
+      image: "assets/images/first4.jpg"
+    },
+    {
+      month: "First 05",
+      tag: "The Big Words",
       date: "August 2024",
-      title: "Feeling Like Home",
-      caption: "Even doing nothing together became the best part of my week. You became my comfort person.",
-      accent: "#D96B75",
-      imagePlaceholder: "☕",
-      image: "assets/images/month4.jpg"
+      title: "The First 'I Love You'",
+      caption: "The moment that made my heart race. Saying it out loud and hearing you say it back was the best feeling in the world.",
+      accent: "#EFA6AA",
+      imagePlaceholder: "💚",
+      image: "assets/images/first5.jpg"
     },
     {
-      month: "Month 5 • September",
-      tag: "Everyday Magic",
-      date: "September 2024",
-      title: "The Little Things",
-      caption: "Shared playlists, secret glances, and inside jokes that only you and I understand.",
-      accent: "#7A9A8B",
-      imagePlaceholder: "✨",
-      image: "assets/images/month5.jpg"
-    },
-    {
-      month: "Month 6 • October & November",
-      tag: "Half a Year Milestone",
-      date: "November 14, 2024",
-      title: "Still Choosing You",
-      caption: "Six months of holding your hand, and I still fall for you a little more every single day.",
-      accent: "#D96B75",
-      imagePlaceholder: "💖",
-      image: "assets/images/month6.jpg"
+      month: "First 06",
+      tag: "Next Big First",
+      date: "January 1, 2025",
+      title: "Our First In-Person Hug",
+      caption: "The countdown is ticking. On January 1st, the distance ends and we finally hold each other in real life. I can't wait.",
+      accent: "#2E6B47",
+      imagePlaceholder: "✈️",
+      image: "assets/images/first6.jpg"
     }
   ],
 
-  // Chapter 2: Polaroid Memory Wall (Tap to Flip 3D)
+  // Chapter 2: Digital Keepsakes & First Photos (Tap to Flip 3D)
   polaroids: [
     {
       id: "p1",
       rotation: "-2deg",
-      washiColor: "washi-rose",
-      caption: "That smile I fell for",
+      washiColor: "washi-sage",
+      caption: "The first picture you sent me",
       date: "May 2024",
-      location: "Where we first met",
-      backNote: "You looked so radiant. I remember thinking how lucky I was that you said yes.",
+      location: "Saved to favorites instantly",
+      backNote: "I stared at this picture for so long thinking, 'How is someone this gorgeous talking to me?'",
       image: "assets/images/photo1.jpg",
       symbol: "📸"
     },
     {
       id: "p2",
-      rotation: "3deg",
-      washiColor: "washi-sage",
-      caption: "Our favorite coffee date",
-      date: "July 2024",
-      location: "Our cozy spot",
-      backNote: "You stole my drink halfway through and gave me that cheeky grin.",
+      rotation: "2.5deg",
+      washiColor: "washi-mint",
+      caption: "Our FaceTime smile screenshot",
+      date: "June 2024",
+      location: "Late night video call",
+      backNote: "You caught me looking at you like an idiot. My favorite sight in the world.",
       image: "assets/images/photo2.jpg",
-      symbol: "☕"
+      symbol: "📱"
     },
     {
       id: "p3",
       rotation: "-3deg",
-      washiColor: "washi-gold",
-      caption: "Golden hour with you",
-      date: "August 2024",
-      location: "Sunset stroll",
-      backNote: "The sunset was gorgeous, but honestly, I couldn't stop looking at you.",
+      washiColor: "washi-honey",
+      caption: "Matching songs & shared screen",
+      date: "July 2024",
+      location: "Our digital universe",
+      backNote: "Listening to our favorite playlist together across the miles.",
       image: "assets/images/photo3.jpg",
-      symbol: "🌅"
+      symbol: "🎧"
     },
     {
       id: "p4",
-      rotation: "2.5deg",
-      washiColor: "washi-rose",
-      caption: "The big adventure day",
+      rotation: "2deg",
+      washiColor: "washi-blush",
+      caption: "Silly faces & laughing fits",
       date: "September 2024",
-      location: "Weekend getaway",
-      backNote: "We got slightly lost, but with you by my side, every wrong turn was perfect.",
+      location: "Mid-call candid",
+      backNote: "No filters, no pretending—just complete comfort with you.",
       image: "assets/images/photo4.jpg",
-      symbol: "🚗"
+      symbol: "🧸"
     },
     {
       id: "p5",
       rotation: "-1.5deg",
       washiColor: "washi-sage",
-      caption: "Lazy cozy Sunday",
-      date: "October 2024",
-      location: "Warm blankets & you",
-      backNote: "Wrapped up, watching movies, and listening to you softly breathing asleep.",
+      caption: "Countdown to January 1st",
+      date: "Jan 1, 2025",
+      location: "Arrival gate",
+      backNote: "The moment I see you walking toward me in person will be the happiest second of my life.",
       image: "assets/images/photo5.jpg",
-      symbol: "🧸"
+      symbol: "✈️"
     },
     {
       id: "p6",
       rotation: "1.8deg",
-      washiColor: "washi-gold",
-      caption: "Here's to us, always",
-      date: "November 2024",
-      location: "6 Months Milestone",
-      backNote: "The best 6 months of my life. And this is only the beginning.",
+      washiColor: "washi-mint",
+      caption: "Six months strong",
+      date: "November 14, 2024",
+      location: "Half-a-year milestone",
+      backNote: "Distance proved how strong our love is. Nothing can replace what we have.",
       image: "assets/images/photo6.jpg",
-      symbol: "💫"
+      symbol: "🌿"
     }
   ],
 
-  // Chapter 3: "Open When..." Interactive Letters
+  // Chapter 3: "Open When..." Letters (Adapted for LDR)
   openWhenLetters: [
     {
-      id: "miss-me",
+      id: "distance-heavy",
       label: "Open When...",
-      title: "You Miss Me",
-      stamp: "💌",
-      colorClass: "env-rose",
-      teaser: "For when distance or a busy day feels a little too heavy.",
-      letter: `My favorite person,\n\nIf you're reading this, I'm probably missing you just as much right now. Remember that no matter how many miles, busy hours, or quiet spaces are between us, you are always in my thoughts.\n\nClose your eyes for three seconds, take a deep breath, and remember the way my arms wrap around you. You are loved, you are mine, and I'll see you so soon.\n\nText me right now with a "❤️" so I know you opened this!`
-    },
-    {
-      id: "sad",
-      label: "Open When...",
-      title: "You're Having a Sad Day",
-      stamp: "🌧️",
+      title: "The Distance Feels Too Heavy",
+      stamp: "🌍",
       colorClass: "env-sage",
-      teaser: "A gentle hug in words for when things feel overwhelming.",
-      letter: `Hey love,\n\nI wish I could be right there to wrap a blanket around your shoulders and make everything softer for you. It's okay to feel tired, heavy, or down sometimes.\n\nYou don't have to be strong all the time. Your feelings are valid, and whatever is weighing on you right now will pass. You are one of the most resilient, beautiful souls I have ever known.\n\nLet me carry some of the weight today. I'm here, I'm listening, and I'm not going anywhere.`
+      teaser: "For the quiet days when you just wish I were standing right beside you.",
+      letter: `My beautiful girl,\n\nI know how hard the distance can feel sometimes. Some days, a screen just isn't enough, and you crave a real hug and physical presence. I feel it too, more than words can say.\n\nWhenever the miles feel heavy, please remember: distance is temporary, but what we are building is permanent. Every single second brings us closer to January 1st.\n\nTake a deep breath and put your hand over your heart. That warmth is me loving you from afar. Text me '💚' right now so I can send you a voice note!`
     },
     {
-      id: "cant-sleep",
+      id: "jan1-countdown",
       label: "Open When...",
-      title: "You Can't Sleep",
+      title: "You're Counting Down to Jan 1st",
+      stamp: "✈️",
+      colorClass: "env-mint",
+      teaser: "A reminder of everything that awaits us on our first meeting day.",
+      letter: `Hey love,\n\nCan you picture January 1st? Because I think about it every single day.\n\nThe moment I see you at the arrival gate, I'm not letting you go. No screens, no Wi-Fi lags, no time limits. Just you and me, finally in the same room, holding hands and laughing in real life.\n\nWe have conquered every mile together. The wait is going to make that first hug the sweetest thing either of us has ever known. It's coming so soon!`
+    },
+    {
+      id: "cant-sleep-ldr",
+      label: "Open When...",
+      title: "You Can't Sleep at Night",
       stamp: "🌙",
       colorClass: "env-twilight",
-      teaser: "Soft thoughts and gentle reassurance for late quiet nights.",
-      letter: `Sweetheart,\n\nLate nights have a way of making thoughts feel louder than they are. Put your phone down after this, turn off the lights, and let your mind rest.\n\nThink about our happiest memories: the laughs we couldn't stop, the quiet warmth of your hand in mine, and all the sunny mornings we have waiting for us ahead.\n\nSleep peacefully, knowing you are deeply cherished. Sweet dreams, my angel.`
+      teaser: "Comforting words for late night overthinking when the house is quiet.",
+      letter: `Sweetheart,\n\nLate nights are the hardest part of long distance. If your mind is racing or you feel lonely in bed, know that I am looking up at the exact same moon thinking about you.\n\nClose your eyes and imagine me tucking you in, smoothing your hair, and whispering how proud I am of you. You are safe in my heart, always.\n\nRest your eyes, sleep gently, and wake up knowing you are deeply and fiercely loved.`
     },
     {
-      id: "reassurance",
+      id: "reassurance-ldr",
       label: "Open When...",
       title: "You Need Reassurance",
       stamp: "🤍",
-      colorClass: "env-cream",
-      teaser: "A reminder of how certain and whole my love for you is.",
-      letter: `My dearest,\n\nIf your mind is overthinking or doubts are creeping in, let me say this loud and clear: I choose you. Today, tomorrow, and every day that follows.\n\nYou are not hard to love. Loving you is the easiest, most natural thing I have ever done. You bring so much peace and light into my life, and I am proud beyond words to be your partner.\n\nNever doubt your place in my heart—it belongs entirely to you.`
+      colorClass: "env-honey",
+      teaser: "For when doubts or overthinking sneak in.",
+      letter: `My favorite person,\n\nLet me make this crystal clear: no distance, no time zone, and no number of miles could ever weaken what I feel for you. I don't look around; my heart is completely and happily settled on you.\n\nYou are not just someone I talk to on the phone. You are my future, my peace, and my partner. I choose you over anyone closer, because nobody on this earth compares to you.\n\nYou have all of me.`
     },
     {
-      id: "want-to-smile",
+      id: "want-to-smile-ldr",
       label: "Open When...",
       title: "You Want to Smile",
       stamp: "☀️",
-      colorClass: "env-gold",
-      teaser: "A little pocket of sunshine and our favorite silly moments.",
-      letter: `Hello beautiful!\n\nDid you know that whenever you smile, my heart does that stupid happy flutter? Seriously, you have the cutest laugh on the entire planet.\n\nRemember when we couldn't stop laughing at that ridiculous thing? Just wanted to remind you that you are ridiculously cute, utterly wonderful, and you make this world 1,000% brighter just by existing.\n\nNow give the screen a big smile for me right now! 😊`
+      colorClass: "env-blush",
+      teaser: "A pocket of green sunshine and our favorite silly moments.",
+      letter: `Hello angel!\n\nJust popping into your screen to remind you that you are the cutest, funniest, and most radiant girl I know.\n\nRemember that call where we laughed so hard at nothing that tears were streaming down? Or that silly voice you make? I love every single piece of you.\n\nNow give this screen your biggest, sweetest smile. That smile is my whole world! 😊🌿`
     }
   ],
 
-  // Chapter 4: Interactive Claimable Vouchers
+  // Chapter 4: Vouchers (LDR & Jan 1st In-Person Offers)
   vouchers: [
     {
-      id: "vouch-cuddle",
+      id: "vouch-first-hug",
       number: "VOUCHER #001",
-      title: "Unlimited Cuddle Session",
-      badge: "NON-EXPIRING",
+      title: "The First In-Person Airport Hug",
+      badge: "JAN 1ST EXCLUSIVE",
       icon: "heart",
-      description: "Redeemable for unlimited hugs, back rubs, and being held until you fall asleep or say so.",
-      terms: "Valid anywhere, anytime. Blanket nest and warm tea included on request.",
-      claimedText: "Cuddle pass claimed! Get ready for maximum warmth."
+      description: "Redeemable the exact second we meet on January 1st. No time limit—you decide when we let go.",
+      terms: "Guaranteed 100% warmth, forehead kisses, and never-ending embrace.",
+      claimedText: "First hug locked in! January 1st cannot come soon enough."
     },
     {
-      id: "vouch-date",
+      id: "vouch-food-delivery",
       number: "VOUCHER #002",
-      title: "Date Night Fully Planned By Me",
-      badge: "VIP EXPERIENCE",
-      icon: "sparkles",
-      description: "You don't make a single decision. I plan the food, the vibe, the timing, and all the surprises.",
-      terms: "You just get dressed up, look stunning as always, and enjoy.",
-      claimedText: "Date planned! All you need to do is show up looking gorgeous."
-    },
-    {
-      id: "vouch-food",
-      number: "VOUCHER #003",
-      title: "Your Favorite Comfort Food Treat",
-      badge: "TASTY",
+      title: "Long-Distance Food Delivery",
+      badge: "COMFORT FOOD",
       icon: "utensils",
-      description: "Whatever sweet treat, boba, takeout, or comfort meal you're craving right now—it's on me.",
-      terms: "Zero judgment on portion size or midnight cravings.",
-      claimedText: "Cravings unlocked! Prepare your appetite."
+      description: "Any snack, sweet treat, boba, or dinner delivered directly to your doorstep tonight on my tab.",
+      terms: "Send me your craving and your address, and I take care of the rest.",
+      claimedText: "Cravings unlocked! Delivery is on the way."
     },
     {
-      id: "vouch-movie",
+      id: "vouch-first-date",
+      number: "VOUCHER #003",
+      title: "Our Very First Real-Life Date",
+      badge: "VIP JANUARY 1ST",
+      icon: "sparkles",
+      description: "You make zero decisions. I plan our first in-person lunch/dinner, activities, and surprises.",
+      terms: "All you need to do is show up, be yourself, and look stunning as always.",
+      claimedText: "First real date booked! Get ready to be spoiled."
+    },
+    {
+      id: "vouch-sleep-call",
       number: "VOUCHER #004",
-      title: "Movie Night of Your Choice",
-      badge: "ENTERTAINMENT",
-      icon: "film",
-      description: "You pick whatever movie or show you want—even if it's cheesy or something I've watched twice.",
-      terms: "Guaranteed no complaints and endless popcorn refill.",
-      claimedText: "Movie choice is yours! I promise no spoilers."
+      title: "All-Night Sleep Call",
+      badge: "LDR ESSENTIAL",
+      icon: "moon",
+      description: "A continuous voice or video call all night until morning, with zero rush to hang up.",
+      terms: "Includes soft bedtime talks and waking up together.",
+      claimedText: "Sleep call activated! Plug your charger in."
     },
     {
-      id: "vouch-massage",
+      id: "vouch-hand-hold",
       number: "VOUCHER #005",
-      title: "One Relaxing Tension Massage",
-      badge: "WELLNESS",
-      icon: "feather",
-      description: "A gentle shoulder, back, or foot massage to melt away all the stress of a long day.",
-      terms: "Includes relaxing music and zero time limits until you relax.",
-      claimedText: "Massage booked! Ultimate relaxation incoming."
+      title: "Hold Hands For The First Time",
+      badge: "FIRST TOUCH",
+      icon: "hand",
+      description: "Fingers intertwined in real life as we take our very first walk together.",
+      terms: "Valid from January 1st onwards for as long as we walk.",
+      claimedText: "First handhold reserved! My hand is already waiting for yours."
+    },
+    {
+      id: "vouch-care-package",
+      number: "VOUCHER #006",
+      title: "Surprise Care Package in the Mail",
+      badge: "PHYSICAL GIFT",
+      icon: "package",
+      description: "A customized physical package with your favorite snacks, a handwritten letter, and a surprise.",
+      terms: "Sent straight to your mailbox with love.",
+      claimedText: "Care package queued! Keep an eye on your mailbox."
     },
     {
       id: "vouch-reassure",
-      number: "VOUCHER #006",
-      title: "Emergency Reassurance Session",
-      badge: "PRIORITY CARE",
-      icon: "shield-check",
-      description: "Whenever you feel anxious or low, I will drop what I'm doing and remind you how loved you are.",
-      terms: "Can be redeemed 24/7/365. You are always my top priority.",
-      claimedText: "Reassurance pass active! I am always in your corner."
-    },
-    {
-      id: "vouch-wish",
       number: "VOUCHER #007",
-      title: "One Free Wish (Within Reason)",
-      badge: "WILDCARD",
-      icon: "gift",
-      description: "A golden ticket for one special request of your choosing. Big or small, it's yours.",
-      terms: "Must be granted with enthusiasm and a smile.",
-      claimedText: "Your wish is my command! Think of something fun."
+      title: "Emergency Overthinking Remedy",
+      badge: "24/7 SUPPORT",
+      icon: "shield-check",
+      description: "Instant phone call or voice memo whenever distance makes you feel anxious or down.",
+      terms: "Redeemable anytime day or night. You are always my top priority.",
+      claimedText: "Overthinking remedy active! I am always one tap away."
     },
     {
-      id: "vouch-win-arg",
+      id: "vouch-you-win",
       number: "VOUCHER #008",
-      title: "The 'You Are 100% Right' Pass",
-      badge: "SPECIAL PASS",
+      title: "The 'You Win Any Argument' Pass",
+      badge: "WILDCARD PASS",
       icon: "crown",
       description: "Instantly win any playful debate or disagreement with zero counter-arguments allowed.",
-      terms: "One-time use. Must be wielded responsibly!",
-      claimedText: "Crown claimed! You win automatically, no questions asked."
+      terms: "One-time use. Must be wielded with that cute smug smile!",
+      claimedText: "Pass redeemed! You are officially 100% right."
     }
   ],
 
-  // Chapter 5: Affection Jar Notes
+  // Chapter 5: Affection Jar Notes (LDR Themed)
   jarNotes: [
-    "The way your nose scrunches up when you laugh really hard.",
-    "How safe and peaceful the whole world feels whenever I'm holding your hand.",
-    "Your kindness and empathy toward animals and the people you care about.",
-    "How you look in the morning with messy hair and soft sleepy eyes.",
-    "The cute voice you make when you're excited about something small.",
-    "How supportive you are whenever I have a tough day.",
-    "The fact that my favorite place in the universe is simply wherever you are.",
-    "How effortlessly you make ordinary errands feel like a fun date.",
-    "Your taste in music and all the songs you've introduced to my life.",
-    "The way you remember tiny details about things I mentioned weeks ago.",
-    "Your warm hugs that instantly cure whatever bad mood I was in.",
-    "The gentle way you look at me across a crowded room.",
-    "How proud I feel every time I get to introduce you as my girlfriend.",
-    "The little happy dances you do when your food arrives.",
-    "Just being you. That's more than enough reason to love you forever."
+    "The way your face lights up on video calls whenever you see me.",
+    "How you make 1,000 miles feel like zero miles just with your voice.",
+    "Your laugh through my earphones that instantly melts all my stress away.",
+    "The sleepy little 'good mornings' you send me before you start your day.",
+    "How committed, loyal, and loving you are, even across the distance.",
+    "Thinking about how lucky I will be when I finally get to hug you on Jan 1st.",
+    "Your adorable photos that I secretly save and look at when I miss you.",
+    "How safe and peaceful my heart feels knowing you are mine.",
+    "The way we can sit on FaceTime in silence for hours and it's still perfect.",
+    "Your favorite color green, and how everything green now reminds me of you.",
+    "The fact that distance has only made my love for you grow deeper each day.",
+    "Your kind heart, your empathy, and the beautiful soul you have.",
+    "Counting down the days until January 1st when our screen becomes real life.",
+    "Just being you. Loving you is the easiest choice of my life."
   ],
 
-  // Golden Scratch Ticket Hidden Message
+  // Golden Scratch Ticket Hidden Promise
   scratchSecret: {
     title: "✨ A Secret Anniversary Promise ✨",
-    message: "You hold my whole heart. Thank you for 6 unforgettable months. My promise to you: I will love you louder on hard days, celebrate you on good days, and stand beside you through every day in between. Happy 6 Months, baby!",
-    reward: "Redeem this for a special anniversary surprise date this weekend!"
+    message: "Distance has tested us, but it only proved that our connection is real, deep, and unbreakable. On January 1st, we start our next chapter in person. I promise to cherish every second with you. Happy 6 Months, baby!",
+    reward: "Redeem this for our very first in-person dessert date on January 1st!"
   },
 
-  // Chapter 6: Personal Handwritten Anniversary Letter
+  // Chapter 6: Personal Anniversary Letter
   letter: {
     salutation: "To My Dearest Girlfriend,",
     date: "November 14, 2024",
     paragraphs: [
-      "Six months ago, we decided to take a chance on us, and looking back, it was the single best decision I have ever made. Time with you moves in the strangest, most beautiful way—six months feels like a warm blink, yet I already can't imagine my world without you in it.",
-      "Thank you for your warmth, your patience, and your endless laughter. Thank you for the quiet moments on the couch just as much as the big adventures. You have made me a calmer, happier, and better version of myself simply by loving me the way you do.",
-      "I love how we can talk about the deepest things in life or dissolve into giggles over something completely silly. You are my safe harbor, my favorite notification, and the sweetest part of my everyday life.",
-      "Six months is just our first milestone. I cannot wait for all the seasons, trips, lazy mornings, and milestones that are still waiting for us in our story.",
-      "Happy 6-Month Anniversary, my love."
+      "Six months ago, we started this journey across the distance, and every single day since has proven to me that you are worth every mile, every quiet night, and every second of waiting.",
+      "Loving you from afar has taught me what true connection means. We don't have the luxury of holding hands every day, but what we have built with our words, our honesty, and our hearts is stronger than anything physical distance could ever challenge.",
+      "Thank you for being my comfort through the phone, my favorite notification, and the sweetest part of every day. Thank you for your patience, your trust, and for choosing me again and again.",
+      "January 1st is right around the corner. Soon, the screens will close, the countdown will hit zero, and I will finally get to look into your eyes in real life and wrap my arms around you.",
+      "Happy 6-Month Anniversary, my love. Half a year down, forever to go."
     ],
-    closing: "Forever and always yours,",
-    signature: "With all my love ❤️"
+    closing: "Forever counting down the days,",
+    signature: "Yours Always 💚"
   }
 };

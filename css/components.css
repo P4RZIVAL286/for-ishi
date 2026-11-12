@@ -1,6 +1,5 @@
 /* ==========================================================================
-   INTERACTIVE COMPONENTS: VINYL, ENVELOPES, VOUCHERS & GAMES
-   Mobile-First • Touch-Friendly • Rich Micro-Interactions
+   INTERACTIVE COMPONENTS: BOTANICAL GREEN & LDR EDITIONS
    ========================================================================== */
 
 /* ==========================================================================
@@ -11,8 +10,8 @@
   position: fixed;
   inset: 0;
   z-index: 10000;
-  background-color: #2D2522;
-  background-image: radial-gradient(rgba(217, 107, 117, 0.15) 1px, transparent 0);
+  background-color: #242E28;
+  background-image: radial-gradient(rgba(123, 158, 140, 0.18) 1px, transparent 0);
   background-size: 20px 20px;
   display: flex;
   align-items: center;
@@ -31,10 +30,10 @@
   width: 100%;
   max-width: 360px;
   aspect-ratio: 4 / 3;
-  background: #FDFBF7;
-  border-radius: 12px;
+  background: #FFFDF9;
+  border-radius: 14px;
   position: relative;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.35);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -42,7 +41,7 @@
   padding: 2rem 1.5rem;
   text-align: center;
   overflow: hidden;
-  border: 1px solid rgba(255,255,255,0.6);
+  border: 1px solid rgba(255,255,255,0.7);
 }
 
 .envelope-gate-flap {
@@ -51,11 +50,11 @@
   left: 0;
   right: 0;
   height: 60%;
-  background: #F4EFE6;
+  background: #F1F6F2;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   transform-origin: top center;
   transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
   z-index: 2;
 }
 
@@ -89,7 +88,6 @@
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
-  transform: scale(1);
   transition: transform 0.2s var(--ease-elastic);
 }
 
@@ -100,22 +98,21 @@
 .wax-seal-circle {
   width: 76px;
   height: 76px;
-  background: radial-gradient(circle at 35% 35%, #E63946, #9B1D20);
+  background: radial-gradient(circle at 35% 35%, #557A66, #2E4739);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
   box-shadow: 
-    0 6px 16px rgba(155, 29, 32, 0.5),
-    inset 0 2px 4px rgba(255, 255, 255, 0.4),
+    0 6px 16px rgba(46, 71, 57, 0.45),
+    inset 0 2px 4px rgba(255, 255, 255, 0.35),
     inset 0 -3px 6px rgba(0, 0, 0, 0.4);
-  position: relative;
   animation: sealGlow 2.4s infinite ease-in-out;
 }
 
 @keyframes sealGlow {
-  0%, 100% { box-shadow: 0 6px 16px rgba(155, 29, 32, 0.5); }
-  50% { box-shadow: 0 8px 24px rgba(230, 57, 70, 0.75); }
+  0%, 100% { box-shadow: 0 6px 16px rgba(46, 71, 57, 0.45); }
+  50% { box-shadow: 0 8px 24px rgba(85, 122, 102, 0.7); }
 }
 
 .wax-seal-circle i {
@@ -126,10 +123,9 @@
 .wax-seal-hint {
   font-family: var(--font-handwriting);
   font-size: 1.25rem;
-  color: var(--rose-primary);
+  color: var(--green-primary);
 }
 
-/* Blur main page before opening */
 #main-content.blurred {
   filter: blur(8px);
   pointer-events: none;
@@ -154,19 +150,19 @@
   display: flex;
   align-items: center;
   gap: 0.6rem;
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.92);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   padding: 0.35rem 0.8rem 0.35rem 0.4rem;
   border-radius: 999px;
   box-shadow: var(--shadow-float);
-  border: 1px solid rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(85, 122, 102, 0.15);
 }
 
 .vinyl-record-widget {
   width: 38px;
   height: 38px;
-  background: radial-gradient(circle, #2B2B2B 30%, #111111 70%, #000 100%);
+  background: radial-gradient(circle, #242E28 30%, #151A17 70%, #000 100%);
   border-radius: 50%;
   position: relative;
   display: flex;
@@ -188,7 +184,7 @@
 .vinyl-center-label {
   width: 14px;
   height: 14px;
-  background: var(--rose-primary);
+  background: var(--green-primary);
   border-radius: 50%;
   border: 2px solid #FFFFFF;
 }
@@ -218,7 +214,7 @@
 .music-eq-bars span {
   width: 2px;
   height: 3px;
-  background: var(--rose-primary);
+  background: var(--green-primary);
   border-radius: 1px;
 }
 
@@ -232,7 +228,7 @@
 }
 
 /* ==========================================================================
-   CHAPTER 3: "OPEN WHEN..." ENVELOPES
+   CHAPTER 3: "OPEN WHEN..." ENVELOPES (LDR THEMED)
    ========================================================================== */
 
 .envelopes-grid {
@@ -247,18 +243,18 @@
 
 .envelope-paper {
   padding: 1.5rem 1.25rem;
-  border-left: 5px solid var(--rose-primary);
+  border-left: 5px solid var(--green-primary);
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   min-height: 190px;
 }
 
-.envelope-item.env-rose .envelope-paper { border-left-color: #D96B75; }
-.envelope-item.env-sage .envelope-paper { border-left-color: #7A9A8B; }
-.envelope-item.env-twilight .envelope-paper { border-left-color: #5C6B84; }
-.envelope-item.env-cream .envelope-paper { border-left-color: #E2A76F; }
-.envelope-item.env-gold .envelope-paper { border-left-color: #D4AF37; }
+.envelope-item.env-sage .envelope-paper { border-left-color: #557A66; }
+.envelope-item.env-mint .envelope-paper { border-left-color: #7B9E8C; }
+.envelope-item.env-honey .envelope-paper { border-left-color: #E2B86E; }
+.envelope-item.env-blush .envelope-paper { border-left-color: #EFA6AA; }
+.envelope-item.env-twilight .envelope-paper { border-left-color: #637B86; }
 
 .envelope-stamp-badge {
   position: absolute;
@@ -298,14 +294,14 @@
   border-radius: 8px;
   font-size: 0.85rem;
   font-weight: 600;
-  color: var(--rose-primary);
+  color: var(--green-primary);
   cursor: pointer;
   transition: all 0.2s ease;
   width: 100%;
 }
 
 .open-envelope-btn:active {
-  background: var(--rose-light);
+  background: var(--green-light);
   transform: scale(0.98);
 }
 
@@ -314,7 +310,7 @@
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: rgba(45, 37, 34, 0.7);
+  background: rgba(36, 46, 40, 0.7);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   display: flex;
@@ -369,7 +365,7 @@
 .modal-header-tag {
   font-family: var(--font-handwriting);
   font-size: 1.35rem;
-  color: var(--rose-primary);
+  color: var(--green-primary);
 }
 
 .modal-title {
@@ -390,7 +386,7 @@
 }
 
 /* ==========================================================================
-   CHAPTER 4: INTERACTIVE VOUCHERS ("LITTLE THINGS YOU CAN CLAIM")
+   CHAPTER 4: CLAIMABLE VOUCHERS (LDR & IN-PERSON COUPONS)
    ========================================================================== */
 
 .vouchers-list {
@@ -404,7 +400,7 @@
   position: relative;
   overflow: hidden;
   border-radius: 14px;
-  border: 1px solid rgba(45, 37, 34, 0.1);
+  border: 1px solid rgba(40, 51, 44, 0.1);
   box-shadow: var(--shadow-paper);
 }
 
@@ -420,8 +416,8 @@
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 1px;
-  color: var(--rose-primary);
-  background: var(--rose-light);
+  color: var(--green-primary);
+  background: var(--green-light);
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
   width: fit-content;
@@ -463,7 +459,6 @@
   height: 14px;
 }
 
-/* Perforation Notch and Line */
 .ticket-perforation {
   width: 18px;
   position: relative;
@@ -480,7 +475,7 @@
   border-radius: 50%;
   position: absolute;
   z-index: 2;
-  box-shadow: inset 0 2px 4px rgba(45, 37, 34, 0.08);
+  box-shadow: inset 0 2px 4px rgba(40, 51, 44, 0.08);
 }
 .notch-top { top: -10px; }
 .notch-bottom { bottom: -10px; }
@@ -494,14 +489,13 @@
   width: 2px;
   background: repeating-linear-gradient(
     to bottom,
-    rgba(45, 37, 34, 0.25) 0,
-    rgba(45, 37, 34, 0.25) 4px,
+    rgba(40, 51, 44, 0.25) 0,
+    rgba(40, 51, 44, 0.25) 4px,
     transparent 4px,
     transparent 8px
   );
 }
 
-/* Right Stub */
 .ticket-stub {
   width: 80px;
   background: var(--paper-cream);
@@ -512,12 +506,12 @@
   padding: 1rem 0.5rem;
   position: relative;
   text-align: center;
-  border-left: 1px dashed rgba(45, 37, 34, 0.1);
+  border-left: 1px dashed rgba(40, 51, 44, 0.1);
 }
 
 .stub-icon {
   font-size: 1.3rem;
-  color: var(--rose-primary);
+  color: var(--green-primary);
   margin-bottom: 0.25rem;
 }
 
@@ -536,21 +530,20 @@
   transform: rotate(-90deg);
 }
 
-/* Claim Button & State */
 .claim-voucher-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   padding: 0.8rem 1.4rem;
-  background: linear-gradient(135deg, var(--rose-primary), #C8535D);
+  background: linear-gradient(135deg, var(--green-primary), #3D5A4A);
   color: #FFF;
   border: none;
   border-radius: 10px;
   font-size: 0.92rem;
   font-weight: 700;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(217, 107, 117, 0.35);
+  box-shadow: 0 4px 12px rgba(85, 122, 102, 0.35);
   transition: all 0.2s ease;
   width: 100%;
 }
@@ -563,14 +556,14 @@
   display: flex;
   align-items: flex-start;
   gap: 0.65rem;
-  background: #E8F5E9;
-  border: 1px solid #A5D6A7;
+  background: #EAF4EE;
+  border: 1px solid #A3D4B6;
   padding: 0.75rem 1rem;
   border-radius: 10px;
 }
 
 .claimed-icon {
-  background: #2E7D32;
+  background: #2E6B47;
   color: #FFF;
   width: 20px;
   height: 20px;
@@ -587,16 +580,15 @@
 .claimed-text strong {
   display: block;
   font-size: 0.8rem;
-  color: #2E7D32;
+  color: #2E6B47;
   letter-spacing: 0.5px;
 }
 
 .claimed-text span {
   font-size: 0.82rem;
-  color: #1B5E20;
+  color: #1F4C32;
 }
 
-/* Rubber Stamp Slam */
 .rubber-stamp {
   position: absolute;
   top: 50%;
@@ -604,8 +596,8 @@
   transform: translate(-50%, -50%) rotate(-25deg);
   font-size: 1.1rem;
   font-weight: 900;
-  color: #D32F2F;
-  border: 3px solid #D32F2F;
+  color: #2E6B47;
+  border: 3px solid #2E6B47;
   padding: 0.25rem 0.6rem;
   border-radius: 6px;
   text-transform: uppercase;
@@ -630,7 +622,6 @@
   gap: 2rem;
 }
 
-/* Love-O-Meter Slider */
 .love-meter-card {
   padding: 1.75rem 1.4rem;
   text-align: center;
@@ -641,8 +632,8 @@
 }
 
 .love-meter-card.overflowed {
-  border-color: #E63946;
-  background: #FFF5F5;
+  border-color: #557A66;
+  background: #F4FAF6;
 }
 
 @keyframes shakeMeter {
@@ -654,7 +645,7 @@
 .love-meter-val {
   font-size: 2.2rem;
   font-weight: 900;
-  color: var(--rose-primary);
+  color: var(--green-primary);
   margin: 0.5rem 0 1rem;
   font-feature-settings: "tnum";
 }
@@ -664,7 +655,7 @@
   -webkit-appearance: none;
   height: 12px;
   border-radius: 6px;
-  background: linear-gradient(to right, #F7D6D9, #D96B75, #C8535D);
+  background: linear-gradient(to right, #D6E8DC, #7B9E8C, #557A66);
   outline: none;
   margin-bottom: 1.25rem;
 }
@@ -674,10 +665,10 @@
   width: 32px;
   height: 32px;
   background: #FFFFFF;
-  border: 4px solid var(--rose-primary);
+  border: 4px solid var(--green-primary);
   border-radius: 50%;
   cursor: pointer;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.18);
 }
 
 .love-feedback {
@@ -687,7 +678,6 @@
   min-height: 48px;
 }
 
-/* Affection Jar */
 .affection-jar-card {
   padding: 1.75rem 1.4rem;
   text-align: center;
@@ -722,8 +712,8 @@
 }
 
 .jar-note-paper {
-  background: #FFFDF5;
-  border: 1px dashed rgba(242, 166, 90, 0.6);
+  background: #FAFBF9;
+  border: 1px dashed rgba(85, 122, 102, 0.45);
   padding: 1.25rem;
   border-radius: 10px;
   margin-top: 1rem;
@@ -772,7 +762,7 @@
 }
 
 .scratch-hidden-content {
-  background: linear-gradient(135deg, #FFFDF8, #FCECD7);
+  background: linear-gradient(135deg, #FCFAF7, #F2E8D7);
   padding: 2rem 1.5rem;
   text-align: center;
   height: 100%;
@@ -799,21 +789,18 @@
 .scratch-secret-reward {
   font-size: 0.85rem;
   font-weight: 700;
-  color: #D96B75;
-  background: rgba(217, 107, 117, 0.12);
+  color: #557A66;
+  background: rgba(85, 122, 102, 0.15);
   padding: 0.5rem 1rem;
   border-radius: 8px;
 }
 
-/* ==========================================================================
-   CHAPTER 6: PERSONAL ANNIVERSARY LETTER
-   ========================================================================== */
-
+/* Chapter 6: Personal Letter */
 .letter-parchment {
-  background-color: #FFFDF9;
-  background-image: radial-gradient(rgba(200, 168, 130, 0.12) 1px, transparent 0);
+  background-color: #FCFAF7;
+  background-image: radial-gradient(rgba(85, 122, 102, 0.08) 1px, transparent 0);
   background-size: 18px 18px;
-  border: 1px solid rgba(200, 168, 130, 0.35);
+  border: 1px solid rgba(85, 122, 102, 0.25);
   padding: clamp(1.75rem, 6vw, 3rem);
   border-radius: 12px;
   box-shadow: var(--shadow-paper);
@@ -854,6 +841,6 @@
 .letter-signature {
   font-family: var(--font-handwriting);
   font-size: 1.8rem;
-  color: var(--rose-primary);
+  color: var(--green-primary);
   font-weight: 700;
 }

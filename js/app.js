@@ -50,8 +50,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // 4. Live Journey & Heartbeat Counter
+  // 4. Live Journey & Heartbeat Counter + LDR Jan 1st Countdown
   initJourneyCounter(config.startDate);
+  initMeetingCountdown(config.meetingDate);
 
   // 5. Render Timeline
   renderTimeline(config.timeline);
@@ -122,6 +123,35 @@ function initJourneyCounter(startDateStr) {
 
   update();
   setInterval(update, 1000);
+}
+
+/**
+ * Real-time countdown to January 1st In-Person Meeting
+ */
+function initMeetingCountdown(meetingDateStr) {
+  const meetingDaysEl = document.getElementById("meeting-countdown-days");
+  if (!meetingDaysEl || !meetingDateStr) return;
+
+  const targetDate = new Date(meetingDateStr).getTime();
+
+  function updateMeeting() {
+    const now = new Date().getTime();
+    const diff = targetDate - now;
+
+    if (diff <= 0) {
+      meetingDaysEl.textContent = "TODAY! 🫂🎉";
+      return;
+    }
+
+    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+    meetingDaysEl.textContent = `${days} Days, ${hours}h ${minutes}m`;
+  }
+
+  updateMeeting();
+  setInterval(updateMeeting, 1000 * 60);
 }
 
 /**
