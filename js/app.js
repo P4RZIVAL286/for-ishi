@@ -451,7 +451,19 @@ function initLoveMeter() {
   if (!slider || !valueDisplay) return;
 
   slider.addEventListener("input", () => {
-    const val = parseInt(slider.value, 10);
+    const raw = parseInt(slider.value, 10);
+    let val;
+
+    // First portion (0 to 35) maps smoothly from 0% to 100%
+    if (raw <= 35) {
+      val = Math.round((raw / 35) * 100);
+    } else {
+      // Past 100% (raw 36 to 100), rapidly surges from 100% up to 3000%
+      const progress = (raw - 35) / (100 - 35);
+      val = Math.round(100 + Math.pow(progress, 1.85) * 2900);
+      if (val > 3000) val = 3000;
+    }
+
     valueDisplay.textContent = `${val.toLocaleString()}%`;
 
     if (val < 100) {
@@ -460,26 +472,27 @@ function initLoveMeter() {
     } else if (val === 100) {
       feedbackDisplay.textContent = "100% — A completely full heart! But keep going... 💕";
       container.classList.remove("shaking", "overflowed");
-    } else if (val < 2000) {
+    } else if (val < 500) {
       feedbackDisplay.textContent = "Now we're talking! Filling up the room with love ✨";
       container.classList.remove("shaking", "overflowed");
-    } else if (val < 20000) {
+    } else if (val < 1500) {
       feedbackDisplay.textContent = "Levels higher than all the green in your wardrobe! 🌿💚";
       container.classList.remove("shaking", "overflowed");
-    } else if (val < 150000) {
+    } else if (val < 2500) {
       feedbackDisplay.textContent = "Warning: Exceeding normal human capacity levels! 💓";
       container.classList.add("shaking");
       container.classList.remove("overflowed");
-    } else if (val < 700000) {
+    } else if (val < 3000) {
       feedbackDisplay.textContent = "CRITICAL: Meter is about to explode from cuteness! 🚨";
       container.classList.add("shaking");
       container.classList.remove("overflowed");
     } else {
+      // Exactly 3000%
       feedbackDisplay.textContent = "💥 OVERFLOW ERROR: Cannot calculate! My love for you is genuinely infinite! ❤️";
       container.classList.add("overflowed");
 
-      if (typeof confetti === "function" && Math.random() > 0.7) {
-        confetti({ particleCount: 30, spread: 60, origin: { y: 0.7 } });
+      if (typeof confetti === "function") {
+        confetti({ particleCount: 35, spread: 65, origin: { y: 0.7 } });
       }
     }
   });
