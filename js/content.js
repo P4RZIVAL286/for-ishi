@@ -14,7 +14,7 @@ window.ANNIVERSARY_CONFIG = {
   
   // January 1st Meeting Milestone
   meetingDate: "2027-01-01T00:00:00", // January 1st meeting in Mumbai
-  meetingSpot: "Mumbai, at her college",
+  meetingSpot: "Marine Drive, Mumbai",
 
   // Music Settings
   music: {
@@ -80,7 +80,7 @@ window.ANNIVERSARY_CONFIG = {
       tag: "The Next Big First",
       date: "January 1",
       title: "Our First In-Person Hug in Mumbai",
-      caption: "Meeting outside your college in Mumbai. The moment the screen turns off and I finally get to hold you in real life. I can't wait, Ishi.",
+      caption: "Meeting at Marine Drive, Mumbai. The moment the screen turns off and I finally get to hold you in real life. I can't wait, Ishi.",
       accent: "#2E6B47",
       imagePlaceholder: "🫂",
       image: "assets/images/first6.jpg"
@@ -95,8 +95,8 @@ window.ANNIVERSARY_CONFIG = {
       washiColor: "washi-sage",
       caption: "The first picture you sent me",
       date: "May 2026",
-      location: "Saved to favorites instantly",
-      backNote: "I stared at this picture thinking, 'How did I get so lucky to have Ishi talking to me?'",
+      location: "Saved forever",
+      backNote: "The first photo you ever sent me. I looked at it for so long, thinking how lucky I was.",
       image: "assets/images/photo1.jpg",
       symbol: "📸"
     },
@@ -104,56 +104,34 @@ window.ANNIVERSARY_CONFIG = {
       id: "p2",
       rotation: "2.5deg",
       washiColor: "washi-mint",
-      caption: "Those weird faces on video call",
-      date: "Every VC",
-      location: "Late night calls",
-      backNote: "Making ridiculous faces just to hear you burst out laughing. Best sound in the world.",
-      image: "assets/images/photo2.jpg",
-      symbol: "🤪"
+      caption: "Our Spotify Blend: 97%",
+      date: "Our Blend Score",
+      location: "Spotify",
+      backNote: "97% taste match. Honestly not surprised — we vibe in every single way.",
+      image: "assets/images/photo2_blend.jpg",
+      symbol: "🎵"
     },
     {
       id: "p3",
       rotation: "-3deg",
       washiColor: "washi-honey",
-      caption: "When you think my kiss is a puppy face",
-      date: "Classic Ishi Moment",
+      caption: "Kiss or puppy face?",
+      date: "Classic Shaurya",
       location: "Through the screen",
-      backNote: "I was trying to give you the sweetest kiss, and you thought I was doing a puppy face! 🐶😘",
-      image: "assets/images/photo3.jpg",
+      backNote: "I was trying to give you the sweetest kiss. You said I looked like a puppy. 🐶😘",
+      image: "assets/images/photo3_puppy.jpg",
       symbol: "🐶"
     },
     {
       id: "p4",
       rotation: "2deg",
       washiColor: "washi-sage",
-      caption: "Until I Found You (Our Song)",
-      date: "Shared Playlist",
-      location: "Distance soundtrack",
-      backNote: "Listening to our song and counting down every single day until January 1st.",
-      image: "assets/images/photo4.jpg",
-      symbol: "🎵"
-    },
-    {
-      id: "p5",
-      rotation: "-1.5deg",
-      washiColor: "washi-mint",
-      caption: "Destination: Mumbai College",
+      caption: "Marine Drive, Mumbai",
       date: "January 1",
-      location: "Where we first meet",
-      backNote: "The moment I see you walking toward me in Mumbai will be the happiest second of my life.",
-      image: "assets/images/photo5.jpg",
-      symbol: "📍"
-    },
-    {
-      id: "p6",
-      rotation: "1.8deg",
-      washiColor: "washi-honey",
-      caption: "Six Months of Us",
-      date: "November 14",
-      location: "Shaurya & Ishi",
-      backNote: "Half a year of falling for you every single day. Happy 6 months, my pretty girl.",
-      image: "assets/images/photo6.jpg",
-      symbol: "🌿"
+      location: "Marine Drive, Mumbai",
+      backNote: "The moment I see you here in real life for the first time will be the happiest second of my life.",
+      image: "assets/images/photo4_marinedrive.jpg",
+      symbol: "🌊"
     }
   ],
 
@@ -174,7 +152,7 @@ window.ANNIVERSARY_CONFIG = {
       title: "You're Counting Down to Jan 1st",
       stamp: "✈️",
       colorClass: "env-mint",
-      teaser: "Picturing the moment outside your college in Mumbai.",
+      teaser: "Picturing the moment at Marine Drive, Mumbai.",
       letter: `hey love,\n\ncan you picture january 1st? because i think about it every day.\n\nwhen i see you outside your college in mumbai, i am never letting you go. no screens, no bad wifi, no time limits. just you and me, finally in the same place holding hands.\n\nthe wait is going to make that first hug the sweetest thing either of us has ever known. it's coming so soon, ishi!`
     },
     {
@@ -211,7 +189,7 @@ window.ANNIVERSARY_CONFIG = {
     {
       id: "vouch-mumbai-hug",
       number: "VOUCHER #001",
-      title: "The First Hug at Mumbai College",
+      title: "The First Hug at Marine Drive",
       badge: "JAN 1ST EXCLUSIVE",
       icon: "heart",
       description: "Redeemable the exact second we meet outside your college on January 1st. You decide when we let go.",
