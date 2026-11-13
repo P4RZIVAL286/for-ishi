@@ -553,7 +553,6 @@ function initAffectionJar(notes = []) {
   const counterHint = document.getElementById("jar-counter-hint");
   const completionBox = document.getElementById("jar-completion-box");
   const fluidLayer = document.getElementById("jar-fluid-layer");
-  const centerGlyph = document.getElementById("jar-center-glyph");
 
   if (!jarBtn || !notes.length) return;
 
@@ -591,9 +590,6 @@ function initAffectionJar(notes = []) {
       if (progressNum) progressNum.textContent = drawnCount.toString();
       if (counterHint) {
         counterHint.innerHTML = `Tap the jar to draw note ${drawnCount + 1} of ${totalNotes}! (<span id="jar-progress-num">${drawnCount}</span> of ${totalNotes} unlocked) 💌`;
-      }
-      if (centerGlyph) {
-        centerGlyph.textContent = drawnCount >= 6 ? "💖" : "💌";
       }
 
       // Mini confetti
