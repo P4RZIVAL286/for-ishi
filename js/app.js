@@ -496,8 +496,21 @@ function initLoveMeter() {
 
     valueDisplay.textContent = `${val.toLocaleString()}%`;
 
-    if (val < 100) {
-      feedbackDisplay.textContent = "Hey! It's supposed to be higher than that! 😉";
+    // Sad / disbelief lines below 50%
+    if (val === 0) {
+      feedbackDisplay.textContent = "Wait... 0%? This wasn't expected at all 🥺💔";
+      container.classList.remove("shaking", "overflowed");
+    } else if (val < 20) {
+      feedbackDisplay.textContent = "Are you sure about this? My heart is physically aching... 😢";
+      container.classList.remove("shaking", "overflowed");
+    } else if (val < 35) {
+      feedbackDisplay.textContent = "Is this a misclick? Please tell me this was a misclick 🥺";
+      container.classList.remove("shaking", "overflowed");
+    } else if (val < 50) {
+      feedbackDisplay.textContent = "Below 50%?! Ouch... this wasn't expected from you 💔";
+      container.classList.remove("shaking", "overflowed");
+    } else if (val < 100) {
+      feedbackDisplay.textContent = "Getting warmer... but it's supposed to be way higher than that! 😉";
       container.classList.remove("shaking", "overflowed");
     } else if (val === 100) {
       feedbackDisplay.textContent = "100% — A completely full heart! But keep going... 💕";
@@ -529,7 +542,7 @@ function initLoveMeter() {
 }
 
 /**
- * Affection Jar Note Dispenser (Progressive 1 to 12 Fill)
+ * Affection Jar Note Dispenser (Progressive 0 to 12 Fill with Fluid Animation)
  */
 function initAffectionJar(notes = []) {
   const jarBtn = document.getElementById("affection-jar-trigger");
@@ -540,43 +553,50 @@ function initAffectionJar(notes = []) {
   const progressNum = document.getElementById("jar-progress-num");
   const counterHint = document.getElementById("jar-counter-hint");
   const completionBox = document.getElementById("jar-completion-box");
-  const iconDisplay = document.getElementById("jar-icon-display");
+  const fluidLayer = document.getElementById("jar-fluid-layer");
+  const centerGlyph = document.getElementById("jar-center-glyph");
 
-  if (!jarBtn || !noteCard || !notes.length) return;
+  if (!jarBtn || !notes.length) return;
 
   const totalNotes = notes.length;
-  let currentIndex = 0;
   let drawnCount = 0;
 
   jarBtn.addEventListener("click", () => {
-    // Jiggle animation
+    // Jiggle & elastic spring animation
     jarBtn.classList.add("jiggling");
     setTimeout(() => jarBtn.classList.remove("jiggling"), 600);
 
-    // Progressive sequence through all 12 notes
-    const noteIndex = currentIndex;
-    currentIndex = (currentIndex + 1) % totalNotes;
+    // Sequence through notes starting from 0 up to 12
     if (drawnCount < totalNotes) {
       drawnCount++;
     }
 
-    // Update fill bar
+    const noteIndex = (drawnCount - 1) % totalNotes;
     const pct = Math.min(100, Math.round((drawnCount / totalNotes) * 100));
+
+    // Animate fluid layer inside the glass jar and the progress track below
+    if (fluidLayer) fluidLayer.style.height = `${pct}%`;
     if (progressFill) progressFill.style.width = `${pct}%`;
 
-    // Update hint & badge
-    if (noteBadge) noteBadge.textContent = `Reason #${noteIndex + 1} of ${totalNotes}`;
-    noteText.textContent = `"${notes[noteIndex]}"`;
+    // Update note content
+    if (noteBadge) noteBadge.textContent = `Reason #${drawnCount} of ${totalNotes}`;
+    if (noteText) noteText.textContent = `"${notes[noteIndex]}"`;
 
-    noteCard.classList.remove("hidden");
-    noteCard.classList.add("popping");
-    setTimeout(() => noteCard.classList.remove("popping"), 500);
+    if (noteCard) {
+      noteCard.classList.remove("hidden");
+      noteCard.classList.add("popping");
+      setTimeout(() => noteCard.classList.remove("popping"), 500);
+    }
 
     if (drawnCount < totalNotes) {
-      if (progressNum) progressNum.textContent = (drawnCount + 1).toString();
+      if (progressNum) progressNum.textContent = drawnCount.toString();
       if (counterHint) {
-        counterHint.innerHTML = `Tap the jar to draw note <span id="jar-progress-num">${drawnCount + 1}</span> of ${totalNotes}! 💌`;
+        counterHint.innerHTML = `Tap the jar to draw note ${drawnCount + 1} of ${totalNotes}! (<span id="jar-progress-num">${drawnCount}</span> of ${totalNotes} unlocked) 💌`;
       }
+      if (centerGlyph) {
+        centerGlyph.textContent = drawnCount >= 6 ? "💖" : "💌";
+      }
+
       // Mini confetti
       if (typeof confetti === "function") {
         confetti({
@@ -588,17 +608,18 @@ function initAffectionJar(notes = []) {
       }
     } else {
       // 12 / 12 Full jar milestone!
+      if (progressNum) progressNum.textContent = totalNotes.toString();
       if (counterHint) {
         counterHint.innerHTML = `✨ Jar 100% full! All 12/12 reasons unlocked! 💚`;
       }
+      if (centerGlyph) centerGlyph.textContent = "🏺✨";
       if (completionBox) completionBox.classList.remove("hidden");
-      if (iconDisplay) iconDisplay.textContent = "🏺✨";
 
       // Big celebratory burst
       if (typeof confetti === "function") {
         confetti({
-          particleCount: 75,
-          spread: 65,
+          particleCount: 80,
+          spread: 70,
           origin: { y: 0.75 },
           colors: ['#557A66', '#E2B86E', '#7B9E8C', '#FAF9F6']
         });

@@ -208,23 +208,33 @@
             <h3 style="font-size: 1.3rem; font-weight: 700; margin-top: 0.5rem;">How Much Do I Love You?</h3>
             <p style="font-size: 0.9rem; color: var(--ink-muted); margin-bottom: 1rem;">Drag the slider to find out...</p>
             
-            <div class="love-meter-val" id="love-value-display">100%</div>
-            <input type="range" id="love-slider" class="love-slider-input" min="0" max="100" step="1" value="35" aria-label="Love meter slider">
-            <div class="love-feedback" id="love-feedback-text">100% — A completely full heart! But keep going... 💕</div>
+            <div class="love-meter-val" id="love-value-display">0%</div>
+            <input type="range" id="love-slider" class="love-slider-input" min="0" max="100" step="1" value="0" aria-label="Love meter slider">
+            <div class="love-feedback" id="love-feedback-text">Wait... 0%? This wasn't expected at all 🥺💔</div>
           </div>
 
           <!-- 2. Digital Jar of Affection Notes -->
           <div class="affection-jar-card scrapbook-paper">
             <span class="section-label">Affection Dispenser</span>
             <h3 style="font-size: 1.3rem; font-weight: 700; margin-top: 0.5rem;">Reasons Why I Love You</h3>
-            <p class="jar-hint" id="jar-counter-hint">Tap the jar to draw note <span id="jar-progress-num">1</span> of 12! 💌</p>
+            <p class="jar-hint" id="jar-counter-hint">Tap the jar to draw your 1st note! (<span id="jar-progress-num">0</span> of 12 unlocked) 💌</p>
 
             <div class="jar-interactive-wrap">
               <button id="affection-jar-trigger" class="jar-trigger-button" aria-label="Tap jar to dispense a love note">
-                <span class="jar-icon" id="jar-icon-display">🫙</span>
+                <div class="glass-jar-graphic">
+                  <div class="jar-lid"></div>
+                  <div class="jar-neck-ring"></div>
+                  <div class="jar-body-glass">
+                    <div class="jar-fluid-layer" id="jar-fluid-layer" style="height: 0%;">
+                      <div class="jar-fluid-surface"></div>
+                    </div>
+                    <div class="jar-glass-specular"></div>
+                    <span class="jar-center-glyph" id="jar-center-glyph">🫙</span>
+                  </div>
+                </div>
               </button>
               <div class="jar-progress-track">
-                <div class="jar-progress-fill" id="jar-progress-fill" style="width: 8%;"></div>
+                <div class="jar-progress-fill" id="jar-progress-fill" style="width: 0%;"></div>
               </div>
             </div>
 
