@@ -42,7 +42,10 @@
         <div class="password-input-row">
           <input type="text" id="password-input" class="password-input-field" placeholder="secret word..." autocomplete="off" autocapitalize="none" spellcheck="false" autofocus>
         </div>
-        <p id="password-error" class="password-error-tip hidden">That's not it, try again 💚</p>
+        <div id="password-error" class="password-error-tip hidden">
+          <span>That's not it, try again 💚</span>
+          <span class="password-hint-text">Hint: What you love when I call you by 💭</span>
+        </div>
       </div>
 
       <button id="wax-seal-btn" class="wax-seal-button" aria-label="Break the wax seal to open your surprise">
@@ -278,8 +281,10 @@
         <p class="section-subtitle">One last letter for our six-month day.</p>
 
         <article class="letter-parchment">
-          <span class="letter-date-stamp" id="letter-date">November 14, 2024</span>
-          <h3 class="letter-salutation" id="letter-salutation">To My Dearest Girlfriend,</h3>
+          <div class="letter-top-row">
+            <h3 class="letter-salutation" id="letter-salutation">To My Dearest Girlfriend,</h3>
+            <span class="letter-date-stamp" id="letter-date">November 14, 2024</span>
+          </div>
           <div id="letter-paragraphs">
             <!-- Dynamically populated from js/content.js -->
           </div>

@@ -23,15 +23,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const mainContent = document.getElementById("main-content");
   const passwordInput = document.getElementById("password-input");
   const passwordError = document.getElementById("password-error");
-
-  const SECRET_PASS = "babygirl";
+  // Accepts 'babygirl' or 'my love' (case and whitespace insensitive)
+  const VALID_PASSWORDS = ["babygirl", "mylove"];
 
   function checkAndOpen() {
     const rawVal = passwordInput ? passwordInput.value : "";
     const clean = rawVal.trim().toLowerCase().replace(/\s+/g, "");
 
-    // Accepts 'babygirl' or 'baby girl'
-    if (clean === SECRET_PASS) {
+    if (VALID_PASSWORDS.includes(clean)) {
       if (passwordError) passwordError.classList.add("hidden");
 
       // Audio gesture unlock
