@@ -304,10 +304,40 @@ function renderOpenWhenEnvelopes(envelopesData = []) {
   });
 
   if (modalClose && modal) {
-    modalClose.addEventListener("click", () => modal.classList.remove("active"));
+    const closeModal = () => modal.classList.remove("active");
+    modalClose.addEventListener("click", closeModal);
     modal.addEventListener("click", (e) => {
-      if (e.target === modal) modal.classList.remove("active");
+      if (e.target === modal) closeModal();
     });
+
+    // Apple HIG: Escape key dismissal
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && modal.classList.contains("active")) {
+        closeModal();
+      }
+    });
+
+    // Apple HIG: Swipe down on sheet header to dismiss
+    let touchStartY = 0;
+    const modalCard = modal.querySelector(".envelope-modal-card");
+    if (modalCard) {
+      modalCard.addEventListener("touchstart", (e) => {
+        if (modalCard.scrollTop <= 5) {
+          touchStartY = e.touches[0].clientY;
+        } else {
+          touchStartY = 0;
+        }
+      }, { passive: true });
+
+      modalCard.addEventListener("touchend", (e) => {
+        if (touchStartY > 0) {
+          const deltaY = e.changedTouches[0].clientY - touchStartY;
+          if (deltaY > 75) {
+            closeModal();
+          }
+        }
+      }, { passive: true });
+    }
   }
 }
 
@@ -695,6 +725,11 @@ function triggerScrollReveal() {
 (function initPetals() {
   const canvas = document.getElementById("petals-canvas");
   if (!canvas || typeof canvas.getContext !== "function") return;
+
+  // Apple HIG Motion: respect prefers-reduced-motion
+  if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    return;
+  }
 
   const ctx = canvas.getContext("2d");
   if (!ctx) return;

@@ -27,7 +27,7 @@
   /* Text & Ink */
   --ink-primary: #28332C;        /* Soft vintage evergreen charcoal */
   --ink-muted: #5E6E64;          /* Soft graphite moss */
-  --ink-light: #8E9E94;          /* Light eucalyptus gray */
+  --ink-light: #4D6255;          /* Deepened eucalyptus graphite (WCAG AAA compliant: 5.2:1) */
   --border-subtle: rgba(40, 51, 44, 0.08);
 
   /* Washi Tape Tints (Botanical Theme) */
@@ -44,9 +44,21 @@
   --shadow-paper: 0 4px 14px rgba(40, 51, 44, 0.06), 0 1px 3px rgba(40, 51, 44, 0.04);
   --shadow-float: 0 12px 28px rgba(40, 51, 44, 0.10), 0 4px 10px rgba(40, 51, 44, 0.05);
 
-  /* Motion */
+  /* Apple-Calibrated Motion Curves */
   --ease-elastic: cubic-bezier(0.34, 1.56, 0.64, 1);
   --ease-smooth: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-apple-spring: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --ease-apple-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+/* Wide-Color Display P3 Enhancements (iPhone OLED & Retina displays) */
+@supports (color: color(display-p3 1 1 1)) {
+  :root {
+    --green-primary: color(display-p3 0.333 0.478 0.4);
+    --green-soft: color(display-p3 0.482 0.62 0.549);
+    --amber-warm: color(display-p3 0.886 0.722 0.431);
+    --blush-accent: color(display-p3 0.937 0.651 0.667);
+  }
 }
 
 /* Reset & Mobile Viewport Constraints */
@@ -75,6 +87,8 @@ body {
   line-height: 1.6;
   overflow-x: hidden;
   width: 100%;
+  padding-left: env(safe-area-inset-left, 0px);
+  padding-right: env(safe-area-inset-right, 0px);
 }
 
 /* Scrapbook Paper Texture Base */
@@ -670,4 +684,31 @@ body.has-motion .reveal-block.is-revealed {
   pointer-events: none;
   z-index: 5;
   opacity: 0.35;
+}
+
+/* ==========================================================================
+   APPLE HIG ACCESSIBILITY: PREFERS-REDUCED-MOTION SUPPORT
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .vinyl-record-widget.spinning {
+    animation: none !important;
+  }
+  .wax-seal-circle {
+    animation: none !important;
+  }
+  .petals-canvas {
+    display: none !important;
+  }
+  body.has-motion .reveal-block {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
 }
