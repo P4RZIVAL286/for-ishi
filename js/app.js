@@ -206,7 +206,7 @@ function renderTimeline(timelineData = []) {
         <h3 class="timeline-title">${escapeHtml(item.title)}</h3>
         <p class="timeline-caption">${escapeHtml(item.caption)}</p>
         <div class="timeline-date-stamp">
-          <span>📅 ${escapeHtml(item.date)}</span>
+          <span>${escapeHtml(item.date)}</span>
           <span class="timeline-icon-badge">${item.imagePlaceholder || "✨"}</span>
         </div>
       </div>
