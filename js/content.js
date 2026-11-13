@@ -120,7 +120,7 @@ window.ANNIVERSARY_CONFIG = {
       location: "Through the screen",
       backNote: "I was trying to give you the sweetest kiss. You said I looked like a puppy. 🐶😘",
       image: "assets/images/photo3_puppy.jpg",
-      objectPosition: "center 22%",
+      objectPosition: "center 68%",
       symbol: "🐶"
     },
     {
